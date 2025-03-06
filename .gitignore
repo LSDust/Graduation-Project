@@ -74,3 +74,5 @@ Action 3rd/UserSettings/
 Action 3rd/Logs/
 Action 3rd/Temp/
 Action 3rd/.vsconfig
+Action 3rd/obj/
+Action 3rd/.idea/
