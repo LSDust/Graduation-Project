@@ -72,3 +72,5 @@ crashlytics-build.properties
 Action 3rd/Library/
 Action 3rd/UserSettings/
 Action 3rd/Logs/
+Action 3rd/Temp/
+Action 3rd/.vsconfig
