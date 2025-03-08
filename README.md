@@ -20,5 +20,5 @@ https://docs.godotengine.org/zh-cn/4.x/tutorials/scripting/c_sharp/c_sharp_style
 
 #### 避免场景交叉修改导致的报错
 1.只编辑自己文件夹下的场景<br>
-2.完成编辑后，放到"无人编辑的场景"文件夹中<br>
-3.需要修改"无人编辑的场景"时，剪切到自己的文件夹并马上更新一次远程主分支
+2.完成编辑后，放到"Do Not Edit Scene"文件夹中<br>
+3.需要修改"Do Not Edit Scene"中的场景时，剪切到自己的文件夹并马上更新一次远程主分支
