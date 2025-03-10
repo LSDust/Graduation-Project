@@ -24,6 +24,14 @@ namespace Action3rd
             _rigidbody = GetComponent<Rigidbody>();
         }
 
+        private void Start()
+        {
+            InputManager.Instance.InputAssetObject.Player.Move.performed += GetPlayerMoveInput;
+            InputManager.Instance.InputAssetObject.Player.Move.canceled += GetPlayerMoveInput;
+            InputManager.Instance.InputAssetObject.Player.Jump.started += GetPlayerJumpInput;
+            InputManager.Instance.InputAssetObject.Player.Fire.started += _ => _animator.SetTrigger(Attack);
+        }
+
         private void Update()
         {
             if (_playerInputVec != Vector2.zero)
@@ -33,7 +41,7 @@ namespace Action3rd
             }
         }
 
-        public void GetPlayerMoveInput(InputAction.CallbackContext ctx)
+        private void GetPlayerMoveInput(InputAction.CallbackContext ctx)
         {
             _playerInputVec = ctx.ReadValue<Vector2>();
 
@@ -41,17 +49,14 @@ namespace Action3rd
             _animator.SetFloat(Speed, _playerInputVec.magnitude);
         }
 
+        private void GetPlayerJumpInput(InputAction.CallbackContext ctx)
+        {
+            _rigidbody.velocity += Vector3.up * 5f;
+        }
+
         public void GetPlayerLookInput(InputAction.CallbackContext ctx)
         {
             // Debug.Log(ctx.phase.ToString());
-        }
-
-        public void GetPlayerAttackInput(InputAction.CallbackContext ctx)
-        {
-            if (ctx.performed)
-            {
-                _animator.SetTrigger(Attack);
-            }
         }
     }
 }
