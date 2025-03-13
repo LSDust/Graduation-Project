@@ -26,5 +26,10 @@ namespace Action3rd.UI
                 PanelManager.PanelDic.Add(PanelKey.Bag, transform.Find("Bag Panel").GetComponent<BagPanel>());
             }
         }
+
+        private void Start()
+        {
+            PanelManager.OpenPanel(PanelKey.Main);
+        }
     }
 }

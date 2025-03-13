@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8669759991488480662}
   m_Layer: 5
-  m_Name: PackageUIItem
+  m_Name: PackageItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
