@@ -23,10 +23,10 @@ namespace Action3rd
                 //     AssetManager.Instance.GetHandle<GameObject>(new List<string> { "prefab", "character", "cube" });
                 // Debug.Log(AssetManager.Instance.HandleDict.Count);
                 // GameObject.Instantiate(_cubePrefab);
-                var handle = 
-                    AssetManager.Instance.GetHandle<GameObject>(new List<string> { "prefab", "character", "cube" });
-                List<GameObject> objs = handle.Result as List<GameObject>;
-                Debug.Log(objs.Count);
+                // var handle = 
+                //     AssetManager.Instance.GetHandle<GameObject>(new List<string> { "prefab", "character", "cube" });
+                // List<GameObject> objs = handle.Result as List<GameObject>;
+                // Debug.Log(objs.Count);
             }
         }
     }

@@ -62,18 +62,25 @@ namespace Action3rd
         // }
 
         // Update is called once per frame
+        public GameObject handleR;
+        AsyncOperationHandle<GameObject> handle1;
+
         void Update()
         {
+            //AssetReferenceGameObject
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
                 // StartCoroutine(Load());
-                obj.LoadAssetAsync().Completed += handle =>
+                handle1 = obj.LoadAssetAsync();
+                handle1.Completed += h => { };
+            }
+
+            if (Keyboard.current.wKey.wasPressedThisFrame)
+            {
+                if (handle1.IsDone)
                 {
-                    GameObject newObj = Instantiate(handle.Result);
-                    Addressables.Release(handle);
-                    newObj.transform.position = Vector3.zero;
-                    Debug.Log(newObj.name);
-                };
+                    Instantiate(handle1.Result);
+                }
             }
 
             // Addressables.Release(newObj);
