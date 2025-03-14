@@ -12,5 +12,7 @@ EditorBuildSettings:
     path: Assets/01.Scenes/Quarter Night/MainScene.unity
     guid: a9aaf8b9c09ce3e40a785e32cd6ec6c4
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: c977fbbfebeed28438f018d5c425b0a9,
+      type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: df42be54798621149beb5a6589b69fee,
       type: 3}
