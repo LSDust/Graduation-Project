@@ -1,12 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.InputSystem;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.U2D;
+using UnityEngine.UI;
 
 namespace Action3rd.UI
 {
@@ -17,39 +11,67 @@ namespace Action3rd.UI
         public SpriteAtlas spriteAtlas;
         public ItemInfoConfig itemInfoConfig;
 
-        private List<PackageItemData> _packageItemDatas = new List<PackageItemData>()
-        {
-            new PackageItemData(0, "4fr2rdwf", 1),
-            new PackageItemData(1, "e3223wrw", 1),
-            new PackageItemData(0, "4fr2rasf", 1),
-            new PackageItemData(1, "e32nkwrw", 1)
-        };
-
         private void OnEnable()
         {
-            for (int i = 0; i < _packageItemDatas.Count; i++)
+            PlayerDynamicData.GetPackageItemData();
+            Refresh();
+        }
+
+        private void OnDisable()
+        {
+            PlayerDynamicData.SavePackageItemData();
+        }
+
+        private void Refresh()
+        {
+            Clear();
+            SpawnItem();
+        }
+
+        private void Clear()
+        {
+            for (int i = transform.childCount - 1; i >= 0; i--)
             {
-                ItemInfo itemInfo = itemInfoConfig.items[_packageItemDatas[i].ItemInfoIndex];
+                Destroy(transform.GetChild(i).gameObject);
+            }
+        }
+
+        private void SpawnItem()
+        {
+            for (int i = 0; i < PlayerDynamicData.PackageItemDatas.Count; i++)
+            {
+                ItemInfo itemInfo = itemInfoConfig.items[PlayerDynamicData.PackageItemDatas[i].ItemInfoIndex];
                 if (itemInfo.itemType != _tabPage)
                 {
                     continue;
                 }
 
                 PackageItem pi = Instantiate<PackageItem>(packageItemPrefab, this.transform);
-                pi.PackageItemData = _packageItemDatas[i];
+                pi.StorableItemData = PlayerDynamicData.PackageItemDatas[i];
                 pi.iconImage.sprite = spriteAtlas.GetSprite(itemInfo.fileName);
-                pi.levelText.text = "Lv." + pi.PackageItemData.Level.ToString();
+                if (itemInfo.itemType == ItemType.武器)
+                {
+                    pi.levelText.text = "Lv." + pi.StorableItemData.WeaponLevel.ToString();
+                }
+                else
+                {
+                    pi.levelText.text = pi.StorableItemData.Quantity.ToString();
+                }
             }
         }
 
-        private void OnDisable()
+        public void TabChanged(Toggle toggle)
         {
-        }
+            if (toggle.name == "武器")
+            {
+                this._tabPage = ItemType.武器;
+            }
+            else if (toggle.name == "食物")
+            {
+                this._tabPage = ItemType.食物;
+            }
 
-        public void Refresh()
-        {
-            // Clear();
-            // SpawnItem(itemDataList.ItemDatas);
+            this.Refresh();
         }
     }
 }

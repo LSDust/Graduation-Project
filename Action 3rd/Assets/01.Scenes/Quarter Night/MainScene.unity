@@ -186,6 +186,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &171250465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 64008746977372677, guid: ba498a4c97dbc6240a3673da88ece782,
+    type: 3}
+  m_PrefabInstance: {fileID: 2145046080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &181324126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1179,7 @@ PrefabInstance:
     - target: {fileID: 2848094019853393056, guid: ba498a4c97dbc6240a3673da88ece782,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000062994106
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2903045840268912026, guid: ba498a4c97dbc6240a3673da88ece782,
         type: 3}
@@ -1178,7 +1190,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VerticalScrollbar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 171250465}
     - target: {fileID: 5845896676947269996, guid: ba498a4c97dbc6240a3673da88ece782,
         type: 3}
       propertyPath: m_HorizontalScrollbar
@@ -1207,24 +1219,7 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 6859585665102509804, guid: ba498a4c97dbc6240a3673da88ece782,
         type: 3}
-      propertyPath: itemInfoConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 46ee0f829918bcb44ac90d91ea390ea2,
-        type: 2}
-    - target: {fileID: 6859585665102509804, guid: ba498a4c97dbc6240a3673da88ece782,
-        type: 3}
-      propertyPath: packageItemPrefab
-      value: 
-      objectReference: {fileID: 454782333770105902, guid: eee71530037f05146a204bc13de36192,
-        type: 3}
-    - target: {fileID: 6859585665102509804, guid: ba498a4c97dbc6240a3673da88ece782,
-        type: 3}
       propertyPath: packageItemAR.m_AssetGUID
-      value: eee71530037f05146a204bc13de36192
-      objectReference: {fileID: 0}
-    - target: {fileID: 6859585665102509804, guid: ba498a4c97dbc6240a3673da88ece782,
-        type: 3}
-      propertyPath: packageItemPrefab.m_AssetGUID
       value: eee71530037f05146a204bc13de36192
       objectReference: {fileID: 0}
     - target: {fileID: 7286197755992827699, guid: ba498a4c97dbc6240a3673da88ece782,

@@ -1658,6 +1658,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06d9d43b5944ba45969ffdce9b7fe4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  packageItemPrefab: {fileID: 454782333770105902, guid: eee71530037f05146a204bc13de36192,
+    type: 3}
+  spriteAtlas: {fileID: 100100200, guid: 6bd4629c7e354f847b831110fbb82813, type: 3}
+  itemInfoConfig: {fileID: 11400000, guid: 46ee0f829918bcb44ac90d91ea390ea2, type: 2}
 --- !u!1 &7060682092876408104
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ namespace Action3rd.UI
         {
             exitButton.onClick.AddListener(CloseBagPanel);
             selectedToggle.OnSelectedToggle += t => title.text = t.name;
+            selectedToggle.OnSelectedToggle += GetComponentInChildren<PackageItemManager>().TabChanged;
         }
 
         private void CloseBagPanel()
