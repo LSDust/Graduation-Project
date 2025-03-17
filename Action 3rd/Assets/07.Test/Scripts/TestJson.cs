@@ -14,13 +14,13 @@ namespace Action3rd
             long date = DateTime.UtcNow.Ticks;
             // PlayerDynamicData.StorableItemDict.Add(ItemDataType.Weapon, new List<StorableItemData>());
             // List<StorableItemData> items = new List<StorableItemData>() { new StorableItemData(1, date.ToString()) };
-            PlayerDynamicData.PackageItemDatas.Add(new StorableItemData(0, date.ToString()));
-            PlayerDynamicData.PackageItemDatas.Add(new StorableItemData(1, date.ToString()));
-            PlayerDynamicData.PackageItemDatas.Add(new StorableItemData(2, date.ToString()));
-            PlayerDynamicData.PackageItemDatas.Add(new StorableItemData(3, date.ToString()));
-            PlayerDynamicData.PackageItemDatas.Add(new StorableItemData(4, date.ToString()));
-            PlayerDynamicData.PackageItemDatas.Add(new StorableItemData(5, date.ToString()));
-            PlayerDynamicData.PackageItemDatas.Add(new StorableItemData(6, date.ToString()));
+            PlayerDynamicData.PackageItemDataList.Add(new StorableItemData(0, date.ToString()));
+            PlayerDynamicData.PackageItemDataList.Add(new StorableItemData(1, date.ToString()));
+            PlayerDynamicData.PackageItemDataList.Add(new StorableItemData(2, date.ToString()));
+            PlayerDynamicData.PackageItemDataList.Add(new StorableItemData(3, date.ToString()));
+            PlayerDynamicData.PackageItemDataList.Add(new StorableItemData(4, date.ToString()));
+            PlayerDynamicData.PackageItemDataList.Add(new StorableItemData(5, date.ToString()));
+            PlayerDynamicData.PackageItemDataList.Add(new StorableItemData(6, date.ToString()));
             PlayerDynamicData.SavePackageItemData();
             Debug.Log(date);
         }

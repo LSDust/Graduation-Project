@@ -1219,6 +1219,12 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 6859585665102509804, guid: ba498a4c97dbc6240a3673da88ece782,
         type: 3}
+      propertyPath: storableItemInfoConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e78730f14495a2439c0b04ab9b38788,
+        type: 2}
+    - target: {fileID: 6859585665102509804, guid: ba498a4c97dbc6240a3673da88ece782,
+        type: 3}
       propertyPath: packageItemAR.m_AssetGUID
       value: eee71530037f05146a204bc13de36192
       objectReference: {fileID: 0}

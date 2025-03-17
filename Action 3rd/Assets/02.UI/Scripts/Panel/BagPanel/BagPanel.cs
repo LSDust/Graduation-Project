@@ -13,17 +13,26 @@ namespace Action3rd.UI
         [SerializeField] [Tooltip("在ToggleGroup上")]
         private SelectedToggle selectedToggle;
 
+        private PackageItemManager _packageItemManager;
+
 
         private void Awake()
         {
             exitButton.onClick.AddListener(CloseBagPanel);
             selectedToggle.OnSelectedToggle += t => title.text = t.name;
-            selectedToggle.OnSelectedToggle += GetComponentInChildren<PackageItemManager>().TabChanged;
+            _packageItemManager = GetComponentInChildren<PackageItemManager>();
+            selectedToggle.OnSelectedToggle += _packageItemManager.TabChanged;
         }
 
         private void CloseBagPanel()
         {
             PanelManager.ClosePanel();
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            _packageItemManager.Refresh();
         }
     }
 }
