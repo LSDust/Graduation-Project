@@ -6,6 +6,7 @@ namespace Action3rd
 {
     /// <summary>
     /// 必须同时挂在ToggleGroup上
+    /// 给Toggle组一个委托
     /// </summary>
     public class SelectedToggle : MonoBehaviour
     {

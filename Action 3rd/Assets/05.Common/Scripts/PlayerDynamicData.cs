@@ -5,6 +5,9 @@ using System.IO;
 
 namespace Action3rd
 {
+    /// <summary>
+    /// 数据类,玩家所有的动态数据
+    /// </summary>
     public static class PlayerDynamicData
     {
         private static List<StorableItemData> _packageItemDataList;

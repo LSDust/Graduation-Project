@@ -24,6 +24,7 @@ namespace Action3rd
 
         private void Start()
         {
+            Cursor.lockState = CursorLockMode.Locked;
             InputManager.Instance.InputAssetObject.Player.Jump.performed += GetPlayerJumpInput;
             InputManager.Instance.InputAssetObject.Player.Fire.performed += _ => _animator.SetTrigger(Attack);
         }

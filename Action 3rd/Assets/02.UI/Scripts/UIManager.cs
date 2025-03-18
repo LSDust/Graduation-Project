@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Action3rd.UI
 {
+    /// <summary>
+    /// 大管理类,挂在画布上
+    /// </summary>
     public class UIManager : Singleton<UIManager>
     {
         protected override void Awake()

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace Action3rd.UI
 {
+    /// <summary>
+    /// 背包面板下的功能
+    /// </summary>
     public class BagPanel : BasePanel
     {
         [SerializeField] private Button exitButton;
