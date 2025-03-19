@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/01.Scenes/Alex/MyScene.unity
+    path: Assets/01.Scenes/Alex/LoadingScene.unity
     guid: a26932611fd3af74ab3ec29b919d2023
   - enabled: 1
     path: Assets/01.Scenes/Quarter Night/MainScene.unity
