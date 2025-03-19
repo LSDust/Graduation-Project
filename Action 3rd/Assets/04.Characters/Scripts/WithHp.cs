@@ -8,15 +8,15 @@ namespace Action3rd
 
         private void OnTriggerEnter(Collider other)
         {
-            // if (other.gameObject.CompareTag("PlayerSkill"))
-            // {
-            //     hp -= 50;
-            // }
-            //
-            // if (hp <= 0)
-            // {
-            //     Destroy(gameObject);
-            // }
+            if (other.gameObject.CompareTag("PlayerSkill"))
+            {
+                hp -= 50;
+            }
+
+            if (hp <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
 
         public void UnderAttack(int damage)

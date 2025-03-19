@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace Action3rd
 {
@@ -35,7 +36,7 @@ namespace Action3rd
 
                     loadText.text = "Press AnyKey To Continue";
 
-                    if(Input.anyKeyDown)
+                    if(Keyboard.current.anyKey.wasPressedThisFrame)
                     {
                         operation.allowSceneActivation = true;
                     }
