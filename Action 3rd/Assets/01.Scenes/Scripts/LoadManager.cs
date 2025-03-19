@@ -36,7 +36,7 @@ namespace Action3rd
 
                     loadText.text = "Press AnyKey To Continue";
 
-                    if(Keyboard.current.anyKey.wasPressedThisFrame)
+                    if(Keyboard.current.anyKey.isPressed)
                     {
                         operation.allowSceneActivation = true;
                     }
