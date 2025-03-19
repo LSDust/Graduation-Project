@@ -51,7 +51,7 @@ namespace Action3rd
                     ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""82e2554d-1e6a-4238-b411-7e79f4d787c8"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false

@@ -1,3 +1,4 @@
+using UnityEditor.Build.Pipeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -46,7 +47,7 @@ namespace Action3rd
         private void OnAnimatorMove()
         {
             Vector3 moveSpeed = _animator.velocity;
-            _characterController.Move(moveSpeed * Time.deltaTime);
+            _characterController.SimpleMove(moveSpeed);
         }
 
         private void GetPlayerJumpInput(InputAction.CallbackContext ctx)
