@@ -12,6 +12,7 @@ namespace Action3rd.UI
         [SerializeField] private PackageItem packageItemPrefab;
         private StorableItemType _tabPage = StorableItemType.武器;
         public SpriteAtlas spriteAtlas;
+        [SerializeField] private PackageItemDetail packageItemDetail;
 
         public StorableItemInfoConfig storableItemInfoConfig;
 
@@ -48,6 +49,7 @@ namespace Action3rd.UI
                 }
 
                 PackageItem pi = Instantiate<PackageItem>(packageItemPrefab, this.transform);
+                pi.OnClick += (x) => packageItemDetail.ShowDetail(x);
                 pi.StorableItemData = PlayerDynamicData.PackageItemDataList[i]; //赋值数据
                 pi.iconImage.sprite = spriteAtlas.GetSprite(storableItemInfo.fileName);
                 if (storableItemInfo.storableItemType == StorableItemType.武器)
