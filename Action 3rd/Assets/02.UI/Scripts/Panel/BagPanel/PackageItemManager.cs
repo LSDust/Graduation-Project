@@ -1,5 +1,6 @@
+using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.U2D;
 using UnityEngine.UI;
 
 namespace Action3rd.UI
@@ -12,6 +13,7 @@ namespace Action3rd.UI
         [SerializeField] [Tooltip("单元格预制体")] private PackageItem packageItemPrefab;
         private StorableItemType _tabPage = StorableItemType.武器;
         [SerializeField] [Tooltip("详情面板")] private PackageItemDetail packageItemDetail;
+        [SerializeField] [Tooltip("使用按钮")] private Button useButton;
 
         //1.一开始显示详情面板用,2.消耗时也要用
         private PackageItem _currentItem;
@@ -26,7 +28,7 @@ namespace Action3rd.UI
 
         private void OnDisable()
         {
-            // PlayerDynamicData.SavePackageItemData();
+            PlayerDynamicData.SavePackageItemData();
         }
 
         public void Refresh()
@@ -35,6 +37,7 @@ namespace Action3rd.UI
             SpawnItem();
             //todo:前面的修改要等到下一帧才实现吗
             Invoke($"SetFirstItem", 0.01f);
+            UseButtonRefresh();
         }
 
         private void SetFirstItem()
@@ -58,11 +61,10 @@ namespace Action3rd.UI
 
         private void SpawnItem()
         {
-            for (int i = 0; i < PlayerDynamicData.PackageItemDataList.Count; i++)
+            foreach (var t in PlayerDynamicData.PackageItemDataDic)
             {
                 StorableItemInfo storableItemInfo =
-                    _storableItemInfoConfig.items[
-                        PlayerDynamicData.PackageItemDataList[i].ItemInfoIndex]; //通过动态数据拿到静态数据
+                    _storableItemInfoConfig.items[t.Value.ItemInfoIndex]; //通过动态数据拿到静态数据
                 if (storableItemInfo.storableItemType != _tabPage)
                 {
                     continue;
@@ -71,16 +73,16 @@ namespace Action3rd.UI
                 PackageItem pi = Instantiate<PackageItem>(packageItemPrefab, this.transform);
                 pi.OnClick += (x) => this._currentItem = x;
                 pi.OnClick += (_) => packageItemDetail.ShowDetail(this._currentItem.StorableItemData);
-                pi.StorableItemData = PlayerDynamicData.PackageItemDataList[i]; //赋值数据
+                pi.StorableItemData = t.Value; //赋值数据
                 pi.iconImage.sprite = storableItemInfo.itemIcon; //spriteAtlas.GetSprite(storableItemInfo.fileName);
                 if (storableItemInfo.storableItemType == StorableItemType.武器)
                 {
-                    pi.levelText.text = "Lv." + pi.StorableItemData.WeaponLevel.ToString();
+                    pi.itemText.text = pi.StorableItemData.Durability.ToString() + "%";
                 }
                 else
                 {
                     pi.iconImage.transform.rotation = Quaternion.identity;
-                    pi.levelText.text = pi.StorableItemData.Quantity.ToString();
+                    pi.itemText.text = pi.StorableItemData.Quantity.ToString();
                 }
             }
         }
@@ -95,6 +97,43 @@ namespace Action3rd.UI
             };
 
             this.Refresh();
+        }
+
+        private void UseButtonRefresh()
+        {
+            useButton.onClick.RemoveAllListeners();
+            switch (this._tabPage)
+            {
+                case StorableItemType.武器:
+                    useButton.GetComponentInChildren<TMP_Text>().text = "装备";
+                    useButton.onClick.AddListener(Equip);
+                    break;
+                case StorableItemType.食物:
+                    useButton.GetComponentInChildren<TMP_Text>().text = "使用";
+                    useButton.onClick.AddListener(Consume);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void Consume()
+        {
+            this._currentItem.StorableItemData.Quantity--;
+            if (this._currentItem.StorableItemData.Quantity == 0)
+            {
+                PlayerDynamicData.PackageItemDataDic.Remove(this._currentItem.StorableItemData.ItmId);
+                Refresh();
+            }
+            else
+            {
+                this._currentItem.itemText.text = this._currentItem.StorableItemData.Quantity.ToString();
+            }
+        }
+
+        private void Equip()
+        {
+            Debug.Log("装备" + this._currentItem.StorableItemData.ItemInfoIndex);
         }
     }
 }

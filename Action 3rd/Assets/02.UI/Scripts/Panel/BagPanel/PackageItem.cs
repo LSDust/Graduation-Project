@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Action3rd.UI
@@ -11,7 +12,7 @@ namespace Action3rd.UI
         public event Action<PackageItem> OnClick;
         public Image iconImage;
         public StorableItemData StorableItemData;
-        public TMP_Text levelText;
+        [Tooltip("文本")] public TMP_Text itemText;
 
         public void OnPointerClick(PointerEventData eventData)
         {

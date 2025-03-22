@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -10,21 +9,25 @@ namespace Action3rd
     /// </summary>
     public static class PlayerDynamicData
     {
-        private static List<StorableItemData> _packageItemDataList;
+        private static readonly string FilePath = Path.Combine(Application.persistentDataPath, "PackageItemDatas.json");
 
-        public static List<StorableItemData> PackageItemDataList => _packageItemDataList ??=
-            Newtonsoft.Json.JsonConvert.DeserializeObject<List<StorableItemData>>
+        private static Dictionary<string, StorableItemData> _packageItemDataDic;
+
+        public static Dictionary<string, StorableItemData> PackageItemDataDic => _packageItemDataDic ??=
+            Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, StorableItemData>>
             (
                 LocalFileStreamIO.ReadStringFromFile(FilePath)
             );
 
-        private static readonly string FilePath = Path.Combine(Application.persistentDataPath, "PackageItemDatas.json");
-
         public static void SavePackageItemData()
         {
             string jsonData =
-                Newtonsoft.Json.JsonConvert.SerializeObject(PackageItemDataList, Newtonsoft.Json.Formatting.Indented);
+                Newtonsoft.Json.JsonConvert.SerializeObject(PackageItemDataDic, Newtonsoft.Json.Formatting.Indented);
             LocalFileStreamIO.WriteStringToFile(FilePath, jsonData);
+        }
+
+        public static void UpdatePackageItemData(string itemId, StorableItemData item)
+        {
         }
     }
 }
