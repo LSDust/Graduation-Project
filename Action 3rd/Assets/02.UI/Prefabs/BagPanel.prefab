@@ -2422,7 +2422,8 @@ MonoBehaviour:
     type: 3}
   spriteAtlas: {fileID: 100100200, guid: 6bd4629c7e354f847b831110fbb82813, type: 3}
   packageItemDetail: {fileID: 8496171223630095918}
-  storableItemInfoConfig: {fileID: 0}
+  storableItemInfoConfig: {fileID: 11400000, guid: 2e78730f14495a2439c0b04ab9b38788,
+    type: 2}
 --- !u!1 &6738762510910506217
 GameObject:
   m_ObjectHideFlags: 0

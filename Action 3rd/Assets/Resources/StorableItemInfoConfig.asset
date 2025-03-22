@@ -17,12 +17,12 @@ MonoBehaviour:
     itemIcon: {fileID: -790316980, guid: 168628f011bab6148b78004606c7cb39, type: 3}
     itemName: "\u8840\u7259\u5DE8\u5251"
     storableItemType: 0
-    description: 
+    description: "\u4F20\u8BF4\u5DE8\u5251"
   - fileName: "\u6B66\u5668\u88C5\u5907_43"
     itemIcon: {fileID: 1239916068, guid: 168628f011bab6148b78004606c7cb39, type: 3}
     itemName: "\u7834\u9B54\u5251"
     storableItemType: 0
-    description: 
+    description: "\u5315\u9996"
   - fileName: "\u6B66\u5668\u88C5\u5907_42"
     itemIcon: {fileID: -384234327, guid: 168628f011bab6148b78004606c7cb39, type: 3}
     itemName: "\u9F99\u7FFC\u65A7\u5203"

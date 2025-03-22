@@ -30,28 +30,28 @@ namespace Action3rd
 
         private void OnValidate()
         {
-            foreach (StorableItemInfo ii in items)
-            {
-                if (ii.itemIcon != null)
-                {
-                    ii.fileName = ii.itemIcon.name;
-// #if UNITY_EDITOR
-                    // ii.atlasPath = UnityEditor.AssetDatabase.GetAssetPath(ii.itemIcon);
-// #endif
-                }
-                else
-                {
-                    ii.fileName = string.Empty;
-                    // ii.atlasPath = string.Empty;
-                }
-            }
+//             foreach (StorableItemInfo ii in items)
+//             {
+//                 if (ii.itemIcon != null)
+//                 {
+//                     ii.fileName = ii.itemIcon.name;
+// // #if UNITY_EDITOR
+//                     // ii.atlasPath = UnityEditor.AssetDatabase.GetAssetPath(ii.itemIcon);
+// // #endif
+//                 }
+//                 else
+//                 {
+//                     ii.fileName = string.Empty;
+//                     // ii.atlasPath = string.Empty;
+//                 }
+//             }
         }
     }
 
     [Serializable]
     public class StorableItemInfo
     {
-        [HideInInspector] public string fileName;
+        // [HideInInspector] public string fileName;
         public Sprite itemIcon;
         public string itemName;
         public StorableItemType storableItemType;

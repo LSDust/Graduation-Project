@@ -9,12 +9,20 @@ namespace Action3rd.UI
     /// </summary>
     public class PackageItemManager : MonoBehaviour
     {
-        [SerializeField] private PackageItem packageItemPrefab;
+        [SerializeField] [Tooltip("单元格预制体")] private PackageItem packageItemPrefab;
         private StorableItemType _tabPage = StorableItemType.武器;
-        public SpriteAtlas spriteAtlas;
-        [SerializeField] private PackageItemDetail packageItemDetail;
+        [SerializeField] [Tooltip("详情面板")] private PackageItemDetail packageItemDetail;
 
-        public StorableItemInfoConfig storableItemInfoConfig;
+        //1.一开始显示详情面板用,2.消耗时也要用
+        private PackageItem _currentItem;
+
+        private StorableItemInfoConfig _storableItemInfoConfig;
+        // public SpriteAtlas spriteAtlas;
+
+        private void Awake()
+        {
+            _storableItemInfoConfig = Resources.Load<StorableItemInfoConfig>($"StorableItemInfoConfig");
+        }
 
         private void OnDisable()
         {
@@ -25,6 +33,18 @@ namespace Action3rd.UI
         {
             Clear();
             SpawnItem();
+            //todo:前面的修改要等到下一帧才实现吗
+            Invoke($"SetFirstItem", 0.01f);
+        }
+
+        private void SetFirstItem()
+        {
+            Transform firstItem = this.transform.GetChild(0);
+            if (firstItem != null)
+            {
+                _currentItem = firstItem.GetComponent<PackageItem>();
+                packageItemDetail.ShowDetail(_currentItem.StorableItemData);
+            }
         }
 
         private void Clear()
@@ -38,20 +58,21 @@ namespace Action3rd.UI
 
         private void SpawnItem()
         {
-            //todo:右侧详情面板
             for (int i = 0; i < PlayerDynamicData.PackageItemDataList.Count; i++)
             {
                 StorableItemInfo storableItemInfo =
-                    storableItemInfoConfig.items[PlayerDynamicData.PackageItemDataList[i].ItemInfoIndex]; //通过动态数据拿到静态数据
+                    _storableItemInfoConfig.items[
+                        PlayerDynamicData.PackageItemDataList[i].ItemInfoIndex]; //通过动态数据拿到静态数据
                 if (storableItemInfo.storableItemType != _tabPage)
                 {
                     continue;
                 }
 
                 PackageItem pi = Instantiate<PackageItem>(packageItemPrefab, this.transform);
-                pi.OnClick += (x) => packageItemDetail.ShowDetail(x);
+                pi.OnClick += (x) => this._currentItem = x;
+                pi.OnClick += (_) => packageItemDetail.ShowDetail(this._currentItem.StorableItemData);
                 pi.StorableItemData = PlayerDynamicData.PackageItemDataList[i]; //赋值数据
-                pi.iconImage.sprite = spriteAtlas.GetSprite(storableItemInfo.fileName);
+                pi.iconImage.sprite = storableItemInfo.itemIcon; //spriteAtlas.GetSprite(storableItemInfo.fileName);
                 if (storableItemInfo.storableItemType == StorableItemType.武器)
                 {
                     pi.levelText.text = "Lv." + pi.StorableItemData.WeaponLevel.ToString();
