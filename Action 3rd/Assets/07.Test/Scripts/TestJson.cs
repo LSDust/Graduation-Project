@@ -23,20 +23,21 @@ namespace Action3rd
             // PlayerDynamicData.PackageItemDataDic.Add(new StorableItemData(6, date.ToString()));
             // PlayerDynamicData.SavePackageItemData();
             // Debug.Log(date);
-            string id = Guid.NewGuid().ToString();
-            PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(0, id));
-            id = Guid.NewGuid().ToString();
-            PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(1, id));
-            id = Guid.NewGuid().ToString();
-            PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(2, id));
-            id = Guid.NewGuid().ToString();
-            PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(3, id));
-            id = Guid.NewGuid().ToString();
-            PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(4, id));
-            id = Guid.NewGuid().ToString();
-            PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(5, id));
-            id = Guid.NewGuid().ToString();
-            PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(6, id));
+            // string id = Guid.NewGuid().ToString();
+            // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(0, id));
+            // id = Guid.NewGuid().ToString();
+            // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(1, id));
+            // id = Guid.NewGuid().ToString();
+            // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(2, id));
+            // id = Guid.NewGuid().ToString();
+            // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(3, id));
+            // id = Guid.NewGuid().ToString();
+            // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(4, id));
+            // id = Guid.NewGuid().ToString();
+            // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(5, id));
+            // id = Guid.NewGuid().ToString();
+            // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(6, id));
+            PlayerDynamicData.ObtainItem(0);
             PlayerDynamicData.SavePackageItemData();
         }
 
