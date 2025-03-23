@@ -13,38 +13,107 @@ MonoBehaviour:
   m_Name: StorableItemInfoConfig
   m_EditorClassIdentifier: 
   items:
-  - fileName: "\u6B66\u5668\u88C5\u5907_47"
-    itemIcon: {fileID: -790316980, guid: 168628f011bab6148b78004606c7cb39, type: 3}
-    itemName: "\u8840\u7259\u5DE8\u5251"
+  - itemIcon: {fileID: 21300000, guid: 6be6a15872082489da39fb7e41ad4d10, type: 3}
+    itemName: "\u6728\u5251"
     storableItemType: 0
-    description: "\u4F20\u8BF4\u5DE8\u5251"
-  - fileName: "\u6B66\u5668\u88C5\u5907_43"
-    itemIcon: {fileID: 1239916068, guid: 168628f011bab6148b78004606c7cb39, type: 3}
-    itemName: "\u7834\u9B54\u5251"
+    description: "\u521D\u7EA7\u6B66\u5668"
+  - itemIcon: {fileID: 21300000, guid: dba6ca68b8950431b89be56e28d257db, type: 3}
+    itemName: "\u53CD\u9F7F\u5251"
     storableItemType: 0
-    description: "\u5315\u9996"
-  - fileName: "\u6B66\u5668\u88C5\u5907_42"
-    itemIcon: {fileID: -384234327, guid: 168628f011bab6148b78004606c7cb39, type: 3}
-    itemName: "\u9F99\u7FFC\u65A7\u5203"
+    description: "\u539A\u91CD\u5927\u5251"
+  - itemIcon: {fileID: 21300000, guid: d325d70b6ae944f1dbaa2ca37800d985, type: 3}
+    itemName: "\u53CC\u5203\u91CD\u5251"
     storableItemType: 0
     description: 
-  - fileName: "\u6B66\u5668\u88C5\u5907_35"
-    itemIcon: {fileID: 1466271078, guid: 168628f011bab6148b78004606c7cb39, type: 3}
-    itemName: "\u6C34\u6676\u5251"
+  - itemIcon: {fileID: 21300000, guid: d360389dbaefb49ae9866ccf139e4cdb, type: 3}
+    itemName: "\u7384\u94C1\u5251"
     storableItemType: 0
     description: 
-  - fileName: "\u6B66\u5668\u88C5\u5907_32"
-    itemIcon: {fileID: 890097201, guid: 168628f011bab6148b78004606c7cb39, type: 3}
-    itemName: "\u996E\u8840\u5251"
+  - itemIcon: {fileID: 21300000, guid: 03ca84162e7904d3c9bdcd8ae66fdfa4, type: 3}
+    itemName: "\u95EA\u9F7F\u5251"
     storableItemType: 0
     description: 
-  - fileName: "\u98DF\u726902"
-    itemIcon: {fileID: 21300000, guid: fd647d4544cfcf2448db668e2b78d210, type: 3}
-    itemName: "\u4E09\u660E\u6CBB"
+  - itemIcon: {fileID: 21300000, guid: efe7682d164634fb5868c36acb6b5a26, type: 3}
+    itemName: "\u7834\u98CE\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: 3cdc171f37dc24a29bd131ff609bf593, type: 3}
+    itemName: "\u9EC4\u91D1\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: d9bc09cc59df84d52b1e574be867b28e, type: 3}
+    itemName: "\u9AB7\u9AC5\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: 6621f574767004c64a27736700626ac7, type: 3}
+    itemName: "\u957F\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: 21604b235e6ef4602aecd85fc70900a4, type: 3}
+    itemName: "\u53CD\u94A9\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: 577fb3f8cb8cd41f58d57b6b04b371f1, type: 3}
+    itemName: "\u5929\u4F7F\u4E4B\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: 505000de004f2430a82addf8e60d56d6, type: 3}
+    itemName: "\u7B77\u5B50\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: 35d9b67e7ffa94b7bbbb847f3cfaed76, type: 3}
+    itemName: "\u7EA2\u5B9D\u77F3\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: aa7be86e7ce8e435484b47ba58197742, type: 3}
+    itemName: "\u5BD2\u51B0\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: a2e95e1686e2b424eb8681f5e41d756f, type: 3}
+    itemName: "\u9752\u950B\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: 69ded434314e244a5a28d94c4dcbd374, type: 3}
+    itemName: "\u70C8\u9633\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: b1affa605a2144a40987bfc9b8ec2159, type: 3}
+    itemName: "\u90AA\u773C\u5251"
+    storableItemType: 0
+    description: 
+  - itemIcon: {fileID: 21300000, guid: fd647d4544cfcf2448db668e2b78d210, type: 3}
+    itemName: "\u6C99\u62C9\u571F\u53F8"
     storableItemType: 1
     description: 
-  - fileName: "\u98DF\u726915"
-    itemIcon: {fileID: 21300000, guid: 054d8b88ece8c314ca74ad961ba79a68, type: 3}
-    itemName: "\u5BFF\u53F8"
+  - itemIcon: {fileID: 21300000, guid: 2e4fd8783a8767045a5065fa459a780b, type: 3}
+    itemName: "\u8349\u8393\u679C\u51BB"
+    storableItemType: 1
+    description: 
+  - itemIcon: {fileID: 21300000, guid: 9f4584c0f0d6b4a47b11c7585d32aa1a, type: 3}
+    itemName: "\u5976\u6CB9\u751C\u70B9"
+    storableItemType: 1
+    description: 
+  - itemIcon: {fileID: 21300000, guid: b3992f137dc89a04686952f372ff34c4, type: 3}
+    itemName: "\u714E\u86CB\u6C99\u62C9"
+    storableItemType: 1
+    description: 
+  - itemIcon: {fileID: 21300000, guid: a39d9e1bb849047469986c12c4847169, type: 3}
+    itemName: "\u5976\u6CB9\u745E\u58EB\u5377"
+    storableItemType: 1
+    description: 
+  - itemIcon: {fileID: 21300000, guid: d40b84e1825d0cb4e9ddd6b12ef13c0f, type: 3}
+    itemName: "\u5DE7\u514B\u529B\u86CB\u7CD5"
+    storableItemType: 1
+    description: 
+  - itemIcon: {fileID: 21300000, guid: c9dc4fc7886f0dd41b3cb21b8bfb0f02, type: 3}
+    itemName: "\u9999\u8549\u5939\u5FC3\u997C"
+    storableItemType: 1
+    description: 
+  - itemIcon: {fileID: 21300000, guid: d14451200eeb5a842b8aed8ff480afae, type: 3}
+    itemName: "\u852C\u83DC\u70ED\u72D7"
+    storableItemType: 1
+    description: 
+  - itemIcon: {fileID: 21300000, guid: 5370055d2a3507941ba8150ee69da920, type: 3}
+    itemName: "\u6C34\u679C\u5E03\u4E01"
     storableItemType: 1
     description: 

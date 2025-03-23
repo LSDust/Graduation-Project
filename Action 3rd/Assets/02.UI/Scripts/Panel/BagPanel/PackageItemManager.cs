@@ -81,7 +81,6 @@ namespace Action3rd.UI
                 }
                 else
                 {
-                    pi.iconImage.transform.rotation = Quaternion.identity;
                     pi.itemText.text = pi.StorableItemData.Quantity.ToString();
                 }
             }
