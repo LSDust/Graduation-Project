@@ -11,6 +11,10 @@ namespace Action3rd
         private Animator _animator;
         private CharacterController _characterController;
 
+        Vector3 playerMovement;
+        Transform playerTramsform;
+
+        public float rotateSpeed = 1000;
         /// <summary>
         ///     移动方向
         /// </summary>
@@ -25,6 +29,7 @@ namespace Action3rd
 
         private void Start()
         {
+            playerTramsform = transform;
             Cursor.lockState = CursorLockMode.Locked;
             InputManager.Instance.InputAssetObject.Player.Jump.performed += GetPlayerJumpInput;
             InputManager.Instance.InputAssetObject.Player.Fire.performed += _ => _animator.SetTrigger(Attack);
@@ -34,14 +39,7 @@ namespace Action3rd
         {
             _playerInputVec = InputManager.Instance.InputAssetObject.Player.Move.ReadValue<Vector2>();
             _animator.SetFloat(Speed, _playerInputVec.magnitude, 0.1f, Time.deltaTime);
-            if (_playerInputVec != Vector2.zero)
-            {
-                //todo:拔剑和攻击时不允许旋转
-                Vector3 a = new Vector3(_playerInputVec.x, 0, _playerInputVec.y);
-                Vector3 b = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
-                Vector3 c = 幅角相加(幅角相加(a, b), Vector3.back);
-                transform.rotation = Quaternion.LookRotation(c);
-            }
+            RotatePlayer();
         }
 
         private void OnAnimatorMove()
@@ -58,6 +56,20 @@ namespace Action3rd
         static Vector3 幅角相加(Vector3 a, Vector3 b)
         {
             return new Vector3(a.x * b.x - a.z * b.z, 0, a.x * b.z + a.z * b.x);
+        }
+
+        void RotatePlayer()
+        {
+            if (_playerInputVec != Vector2.zero)
+            {
+                //todo: 拔剑和攻击时不允许旋转
+                Vector3 a = new Vector3(_playerInputVec.x, 0, _playerInputVec.y);
+                Vector3 b = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
+                Vector3 c = 幅角相加(幅角相加(a, b), Vector3.back);
+                //transform.rotation = Quaternion.LookRotation(c);
+                Quaternion targetRotataion = Quaternion.LookRotation(c);
+                playerTramsform.rotation = Quaternion.RotateTowards(playerTramsform.rotation, targetRotataion, rotateSpeed * Time.deltaTime);
+            }
         }
     }
 }
