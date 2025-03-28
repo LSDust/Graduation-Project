@@ -1,29 +1,31 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Action3rd.UI
 {
     /// <summary>
-    /// 内聚背包物品的所有逻辑
+    /// 管理窗口内的背包物品
     /// </summary>
-    public class PackageItemManager : MonoBehaviour
+    public class PackageItemView0 : MonoBehaviour
     {
         [SerializeField] [Tooltip("单元格预制体")] private PackageItem packageItemPrefab;
-        private StorableItemType _tabPage = StorableItemType.武器;
-        [SerializeField] [Tooltip("详情面板")] private PackageItemDetail packageItemDetail;
-        [SerializeField] [Tooltip("使用按钮")] private Button useButton;
+        [SerializeField] [Tooltip("物品类型")] private StorableItemType tabPage = StorableItemType.武器;
 
         //1.一开始显示详情面板用,2.消耗时也要用
         private PackageItem _currentItem;
 
-        private StorableItemInfoConfig _storableItemInfoConfig;
+        // [SerializeField] [Tooltip("预制体")] private GameObject prefab;
+        // public GameObject Prefab => prefab;
+        // [SerializeField] [Tooltip("详情面板")] private PackageItemDetail packageItemDetail { get; }
+        // [SerializeField] [Tooltip("使用按钮")] private Button useButton { get; }
         // public SpriteAtlas spriteAtlas;
 
-        private void Awake()
+        private void OnEnable()
         {
-            _storableItemInfoConfig = Resources.Load<StorableItemInfoConfig>($"StorableItemInfoConfig");
+            Refresh();
         }
 
         private void OnDisable()
@@ -31,13 +33,14 @@ namespace Action3rd.UI
             PlayerDynamicData.SavePackageItemData();
         }
 
-        public void Refresh()
+        private void Refresh()
         {
             Clear();
             SpawnItem();
             //todo:前面的修改要等到下一帧才实现吗
             Invoke($"SetFirstItem", 0.01f);
-            UseButtonRefresh();
+            // SetFirstItem();
+            // UseButtonRefresh();
         }
 
         private void SetFirstItem()
@@ -46,7 +49,6 @@ namespace Action3rd.UI
             if (firstItem != null)
             {
                 _currentItem = firstItem.GetComponent<PackageItem>();
-                packageItemDetail.ShowDetail(_currentItem.StorableItemData);
             }
         }
 
@@ -64,15 +66,16 @@ namespace Action3rd.UI
             foreach (var t in PlayerDynamicData.PackageItemDataDic)
             {
                 StorableItemInfo storableItemInfo =
-                    _storableItemInfoConfig.items[t.Value.ItemInfoIndex]; //通过动态数据拿到静态数据
-                if (storableItemInfo.storableItemType != _tabPage)
+                    PlayerStaticData.StorableItemInfoConfig.items[t.Value.ItemInfoIndex]; //通过动态数据拿到静态数据
+                if (storableItemInfo.storableItemType != tabPage)
                 {
                     continue;
                 }
 
                 PackageItem pi = Instantiate<PackageItem>(packageItemPrefab, this.transform);
                 pi.OnClick += (x) => this._currentItem = x;
-                pi.OnClick += (_) => packageItemDetail.ShowDetail(this._currentItem.StorableItemData);
+                //todo:该类不再调用Detail
+                // pi.OnClick += (_) => packageItemDetail.ShowDetail(this._currentItem.StorableItemData);
                 pi.StorableItemData = t.Value; //赋值数据
                 pi.iconImage.sprite = storableItemInfo.itemIcon; //spriteAtlas.GetSprite(storableItemInfo.fileName);
                 if (storableItemInfo.storableItemType == StorableItemType.武器)
@@ -86,35 +89,36 @@ namespace Action3rd.UI
             }
         }
 
-        public void TabChanged(Toggle toggle)
-        {
-            this._tabPage = toggle.name switch
-            {
-                "武器" => StorableItemType.武器,
-                "食物" => StorableItemType.食物,
-                _ => this._tabPage
-            };
+        // public void TabChanged(Toggle toggle)
+        // {
+        //     this.tabPage = toggle.name switch
+        //     {
+        //         "武器" => StorableItemType.武器,
+        //         "食物" => StorableItemType.食物,
+        //         _ => this.tabPage
+        //     };
+        //
+        //     this.Refresh();
+        // }
 
-            this.Refresh();
-        }
-
-        private void UseButtonRefresh()
-        {
-            useButton.onClick.RemoveAllListeners();
-            switch (this._tabPage)
-            {
-                case StorableItemType.武器:
-                    useButton.GetComponentInChildren<TMP_Text>().text = "装备";
-                    useButton.onClick.AddListener(Equip);
-                    break;
-                case StorableItemType.食物:
-                    useButton.GetComponentInChildren<TMP_Text>().text = "使用";
-                    useButton.onClick.AddListener(Consume);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
+        //todo:该类不再调用装备Button
+        // private void UseButtonRefresh()
+        // {
+        //     useButton.onClick.RemoveAllListeners();
+        //     switch (this._tabPage)
+        //     {
+        //         case StorableItemType.武器:
+        //             useButton.GetComponentInChildren<TMP_Text>().text = "装备";
+        //             useButton.onClick.AddListener(Equip);
+        //             break;
+        //         case StorableItemType.食物:
+        //             useButton.GetComponentInChildren<TMP_Text>().text = "使用";
+        //             useButton.onClick.AddListener(Consume);
+        //             break;
+        //         default:
+        //             throw new ArgumentOutOfRangeException();
+        //     }
+        // }
 
         private void Consume()
         {

@@ -15,7 +15,7 @@ namespace Action3rd
     {
         public Sprite itemIcon;
         public string itemName;
-        public StorableItemType storableItemType;
+        public StorableItemType storableItemType; //这是不用展示文本的信息
         public string description;
     }
 
