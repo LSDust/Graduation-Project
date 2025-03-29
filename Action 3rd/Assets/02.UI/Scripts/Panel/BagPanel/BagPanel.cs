@@ -83,7 +83,7 @@ namespace Action3rd.UI
 
         public void Equip()
         {
-            Debug.Log("装备" + this._currentItem.StorableItemData.ItemInfoIndex);
+            Debug.Log("装备" + this._currentItem.StorableItemData.InfoIndex);
         }
     }
 }

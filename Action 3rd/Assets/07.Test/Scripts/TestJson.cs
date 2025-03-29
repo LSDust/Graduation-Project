@@ -37,7 +37,7 @@ namespace Action3rd
             // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(5, id));
             // id = Guid.NewGuid().ToString();
             // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(6, id));
-            PlayerDynamicData.ObtainItem(20);
+            // PlayerDynamicData.ObtainItem(20);
             PlayerDynamicData.SavePackageItemData();
         }
 

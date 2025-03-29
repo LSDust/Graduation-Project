@@ -31,26 +31,27 @@ namespace Action3rd
         {
         }
 
-        public static void ObtainItem(int infoIndex)
-        {
-            StorableItemInfoConfig info = Resources.Load<StorableItemInfoConfig>($"StorableItemInfoConfig");
-            if (info.items[infoIndex].storableItemType == StorableItemType.武器)
-            {
-                string id = Guid.NewGuid().ToString();
-                PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(infoIndex, id));
-            }
-            else if (info.items[infoIndex].storableItemType == StorableItemType.食物)
-            {
-                if (PlayerDynamicData.PackageItemDataDic.ContainsKey(infoIndex.ToString()))
-                {
-                    PlayerDynamicData.PackageItemDataDic[infoIndex.ToString()].Quantity++;
-                }
-                else
-                {
-                    PlayerDynamicData.PackageItemDataDic.Add(infoIndex.ToString(),
-                        new StorableItemData(infoIndex, infoIndex.ToString()));
-                }
-            }
-        }
+        //todo:infoIndex从静态数据字典的key中随机生成
+        // public static void ObtainItem(int infoIndex)
+        // {
+        //     StorableItemInfoConfig info = Resources.Load<StorableItemInfoConfig>($"StorableItemInfoConfig");
+        //     if (info.ItemInfos[infoIndex].storableItemType == StorableItemType.武器)
+        //     {
+        //         string id = Guid.NewGuid().ToString();
+        //         PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(infoIndex, id));
+        //     }
+        //     else if (info.ItemInfos[infoIndex].storableItemType == StorableItemType.食物)
+        //     {
+        //         if (PlayerDynamicData.PackageItemDataDic.ContainsKey(infoIndex.ToString()))
+        //         {
+        //             PlayerDynamicData.PackageItemDataDic[infoIndex.ToString()].Quantity++;
+        //         }
+        //         else
+        //         {
+        //             PlayerDynamicData.PackageItemDataDic.Add(infoIndex.ToString(),
+        //                 new StorableItemData(infoIndex, infoIndex.ToString()));
+        //         }
+        //     }
+        // }
     }
 }

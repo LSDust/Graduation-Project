@@ -12,7 +12,7 @@ namespace Action3rd.UI
     public class PackageItemView0 : MonoBehaviour
     {
         [SerializeField] [Tooltip("单元格预制体")] private PackageItem packageItemPrefab;
-        [SerializeField] [Tooltip("物品类型")] private StorableItemType tabPage = StorableItemType.武器;
+        // [SerializeField] [Tooltip("物品类型")] private StorableItemType tabPage = StorableItemType.武器;
 
         //1.一开始显示详情面板用,2.消耗时也要用
         private PackageItem _currentItem;
@@ -63,30 +63,30 @@ namespace Action3rd.UI
 
         private void SpawnItem()
         {
-            foreach (var t in PlayerDynamicData.PackageItemDataDic)
-            {
-                StorableItemInfo storableItemInfo =
-                    PlayerStaticData.StorableItemInfoConfig.items[t.Value.ItemInfoIndex]; //通过动态数据拿到静态数据
-                if (storableItemInfo.storableItemType != tabPage)
-                {
-                    continue;
-                }
-
-                PackageItem pi = Instantiate<PackageItem>(packageItemPrefab, this.transform);
-                pi.OnClick += (x) => this._currentItem = x;
-                //todo:该类不再调用Detail
-                // pi.OnClick += (_) => packageItemDetail.ShowDetail(this._currentItem.StorableItemData);
-                pi.StorableItemData = t.Value; //赋值数据
-                pi.iconImage.sprite = storableItemInfo.itemIcon; //spriteAtlas.GetSprite(storableItemInfo.fileName);
-                if (storableItemInfo.storableItemType == StorableItemType.武器)
-                {
-                    pi.itemText.text = pi.StorableItemData.Durability.ToString() + "%";
-                }
-                else
-                {
-                    pi.itemText.text = pi.StorableItemData.Quantity.ToString();
-                }
-            }
+            // foreach (var t in PlayerDynamicData.PackageItemDataDic)
+            // {
+            //     StorableItemInfo storableItemInfo =
+            //         PlayerStaticData.StorableItemInfoConfig.ItemInfos[t.Value.ItemInfoIndex]; //通过动态数据拿到静态数据
+            //     if (storableItemInfo.storableItemType != tabPage)
+            //     {
+            //         continue;
+            //     }
+            //
+            //     PackageItem pi = Instantiate<PackageItem>(packageItemPrefab, this.transform);
+            //     pi.OnClick += (x) => this._currentItem = x;
+            //     //todo:该类不再调用Detail
+            //     // pi.OnClick += (_) => packageItemDetail.ShowDetail(this._currentItem.StorableItemData);
+            //     pi.StorableItemData = t.Value; //赋值数据
+            //     pi.iconImage.sprite = storableItemInfo.icon; //spriteAtlas.GetSprite(storableItemInfo.fileName);
+            //     if (storableItemInfo.storableItemType == StorableItemType.武器)
+            //     {
+            //         pi.itemText.text = pi.StorableItemData.Durability.ToString() + "%";
+            //     }
+            //     else
+            //     {
+            //         pi.itemText.text = pi.StorableItemData.Quantity.ToString();
+            //     }
+            // }
         }
 
         // public void TabChanged(Toggle toggle)
@@ -136,7 +136,7 @@ namespace Action3rd.UI
 
         private void Equip()
         {
-            Debug.Log("装备" + this._currentItem.StorableItemData.ItemInfoIndex);
+            Debug.Log("装备" + this._currentItem.StorableItemData.InfoIndex);
         }
     }
 }

@@ -54,8 +54,8 @@ namespace Action3rd.UI
             foreach (var t in PlayerDynamicData.PackageItemDataDic)
             {
                 StorableItemInfo storableItemInfo =
-                    PlayerStaticData.StorableItemInfoConfig.items[t.Value.ItemInfoIndex]; //通过动态数据拿到静态数据
-                if (storableItemInfo.storableItemType != tabPage)
+                    PlayerStaticData.StorableItemInfoConfig.ItemInfos[t.Value.InfoIndex]; //通过动态数据拿到静态数据
+                if (storableItemInfo.type != tabPage)
                 {
                     continue;
                 }
@@ -63,8 +63,8 @@ namespace Action3rd.UI
                 PackageItem pi = Instantiate<PackageItem>(packageItemPrefab, this.content.transform);
                 pi.OnClick += SetCurrentItem;
                 pi.StorableItemData = t.Value; //赋值数据
-                pi.iconImage.sprite = storableItemInfo.itemIcon; //spriteAtlas.GetSprite(storableItemInfo.fileName);
-                if (storableItemInfo.storableItemType == StorableItemType.武器)
+                pi.iconImage.sprite = storableItemInfo.icon; //spriteAtlas.GetSprite(storableItemInfo.fileName);
+                if (storableItemInfo.type == StorableItemType.武器)
                 {
                     pi.itemText.text = pi.StorableItemData.Durability.ToString() + "%";
                 }

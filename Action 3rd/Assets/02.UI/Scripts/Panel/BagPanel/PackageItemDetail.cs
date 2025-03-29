@@ -21,9 +21,9 @@ namespace Action3rd
 
         public void ShowDetail(StorableItemData storableItemData)
         {
-            this.itemName.text = _storableItemInfoConfig.items[storableItemData.ItemInfoIndex].itemName;
-            this.itemIcon.sprite = _storableItemInfoConfig.items[storableItemData.ItemInfoIndex].itemIcon;
-            this.itemStory.text = _storableItemInfoConfig.items[storableItemData.ItemInfoIndex].description;
+            this.itemName.text = _storableItemInfoConfig.ItemInfos[storableItemData.InfoIndex].name;
+            this.itemIcon.sprite = _storableItemInfoConfig.ItemInfos[storableItemData.InfoIndex].icon;
+            this.itemStory.text = _storableItemInfoConfig.ItemInfos[storableItemData.InfoIndex].description;
         }
     }
 }
