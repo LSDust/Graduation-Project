@@ -1,3 +1,4 @@
+using UnityEditor.Build.Pipeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,12 +11,21 @@ namespace Action3rd
         private Animator _animator;
         private CharacterController _characterController;
 
-        /// <summary>
-        ///     移动方向
-        /// </summary>
-        private Vector2 _playerInputVec;
+        Vector3 playerMovement;
+        Transform playerTramsform;
 
+        public float rotateSpeed = 1000;//旋转速度
 
+        public float gravity = -9.8f;//重力
+
+        private Vector3 g_Velocity = Vector3.zero;//重力速度
+
+        public Transform groundCheck;//检测地面的位置
+        public float groundRadius = 0.2f;//检测地面的半径
+        private bool isGrounded;//是否在地面上
+        private Vector2 _playerInputVec;//玩家输入的方向
+
+        public float jumpHeight = 3f;//跳跃高度
         protected void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -24,6 +34,7 @@ namespace Action3rd
 
         private void Start()
         {
+            playerTramsform = transform;
             Cursor.lockState = CursorLockMode.Locked;
             InputManager.Instance.InputAssetObject.Player.Jump.performed += GetPlayerJumpInput;
             InputManager.Instance.InputAssetObject.Player.Fire.performed += _ => _animator.SetTrigger(Attack);
@@ -33,30 +44,49 @@ namespace Action3rd
         {
             _playerInputVec = InputManager.Instance.InputAssetObject.Player.Move.ReadValue<Vector2>();
             _animator.SetFloat(Speed, _playerInputVec.magnitude, 0.1f, Time.deltaTime);
-            if (_playerInputVec != Vector2.zero)
-            {
-                //todo:拔剑和攻击时不允许旋转
-                Vector3 a = new Vector3(_playerInputVec.x, 0, _playerInputVec.y);
-                Vector3 b = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
-                Vector3 c = 幅角相加(幅角相加(a, b), Vector3.back);
-                transform.rotation = Quaternion.LookRotation(c);
-            }
+            RotatePlayer();
         }
 
         private void OnAnimatorMove()
         {
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, LayerMask.GetMask("Ground"));
+            if(isGrounded && g_Velocity.y < 0)
+            {
+                g_Velocity.y = 0;
+            }
+
             Vector3 moveSpeed = _animator.velocity;
-            _characterController.Move(moveSpeed * Time.deltaTime);
+            _characterController.SimpleMove(moveSpeed);
+
+            g_Velocity.y += gravity * Time.deltaTime;
+            _characterController.Move(g_Velocity * Time.deltaTime);
         }
 
         private void GetPlayerJumpInput(InputAction.CallbackContext ctx)
         {
-            // _rigidbody.velocity += Vector3.up * 5f;
+            if (isGrounded)
+            {
+                g_Velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
         }
 
         static Vector3 幅角相加(Vector3 a, Vector3 b)
         {
             return new Vector3(a.x * b.x - a.z * b.z, 0, a.x * b.z + a.z * b.x);
+        }
+
+        void RotatePlayer()
+        {
+            if (_playerInputVec != Vector2.zero)
+            {
+                //todo: 拔剑和攻击时不允许旋转
+                Vector3 a = new Vector3(_playerInputVec.x, 0, _playerInputVec.y);
+                Vector3 b = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
+                Vector3 c = 幅角相加(幅角相加(a, b), Vector3.back);
+                //transform.rotation = Quaternion.LookRotation(c);
+                Quaternion targetRotataion = Quaternion.LookRotation(c);
+                playerTramsform.rotation = Quaternion.RotateTowards(playerTramsform.rotation, targetRotataion, rotateSpeed * Time.deltaTime);
+            }
         }
     }
 }
