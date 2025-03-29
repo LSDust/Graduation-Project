@@ -8,6 +8,9 @@ namespace Action3rd
 {
     public class TestJson : MonoBehaviour
     {
+        [Tooltip("要修改的SO文件")] public StorableItemInfoConfig configFile;
+        [Multiline] public string jsonStr;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -38,7 +41,7 @@ namespace Action3rd
             // id = Guid.NewGuid().ToString();
             // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(6, id));
             // PlayerDynamicData.ObtainItem(20);
-            PlayerDynamicData.SavePackageItemData();
+            // PlayerDynamicData.SavePackageItemData();
         }
 
         // Update is called once per frame

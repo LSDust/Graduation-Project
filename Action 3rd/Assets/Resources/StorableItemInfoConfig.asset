@@ -17,6 +17,36 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 21300000, guid: c98da7106505a42d0a83fcd3dc738908, type: 3}
+    - {fileID: 21300000, guid: dba6ca68b8950431b89be56e28d257db, type: 3}
+    - {fileID: 21300000, guid: d325d70b6ae944f1dbaa2ca37800d985, type: 3}
+    - {fileID: 21300000, guid: d360389dbaefb49ae9866ccf139e4cdb, type: 3}
+    - {fileID: 21300000, guid: 03ca84162e7904d3c9bdcd8ae66fdfa4, type: 3}
+    - {fileID: 21300000, guid: efe7682d164634fb5868c36acb6b5a26, type: 3}
+    - {fileID: 21300000, guid: 3cdc171f37dc24a29bd131ff609bf593, type: 3}
+    - {fileID: 21300000, guid: d9bc09cc59df84d52b1e574be867b28e, type: 3}
+    - {fileID: 21300000, guid: 6621f574767004c64a27736700626ac7, type: 3}
+    - {fileID: 21300000, guid: 21604b235e6ef4602aecd85fc70900a4, type: 3}
+    - {fileID: 21300000, guid: 577fb3f8cb8cd41f58d57b6b04b371f1, type: 3}
+    - {fileID: 21300000, guid: 505000de004f2430a82addf8e60d56d6, type: 3}
+    - {fileID: 21300000, guid: 35d9b67e7ffa94b7bbbb847f3cfaed76, type: 3}
+    - {fileID: 21300000, guid: aa7be86e7ce8e435484b47ba58197742, type: 3}
+    - {fileID: 21300000, guid: a2e95e1686e2b424eb8681f5e41d756f, type: 3}
+    - {fileID: 21300000, guid: 69ded434314e244a5a28d94c4dcbd374, type: 3}
+    - {fileID: 21300000, guid: b1affa605a2144a40987bfc9b8ec2159, type: 3}
+    - {fileID: 21300000, guid: fd647d4544cfcf2448db668e2b78d210, type: 3}
+    - {fileID: 21300000, guid: 2e4fd8783a8767045a5065fa459a780b, type: 3}
+    - {fileID: 21300000, guid: 9f4584c0f0d6b4a47b11c7585d32aa1a, type: 3}
+    - {fileID: 21300000, guid: b3992f137dc89a04686952f372ff34c4, type: 3}
+    - {fileID: 21300000, guid: a39d9e1bb849047469986c12c4847169, type: 3}
+    - {fileID: 21300000, guid: d40b84e1825d0cb4e9ddd6b12ef13c0f, type: 3}
+    - {fileID: 21300000, guid: c9dc4fc7886f0dd41b3cb21b8bfb0f02, type: 3}
+    - {fileID: 21300000, guid: d14451200eeb5a842b8aed8ff480afae, type: 3}
+    - {fileID: 21300000, guid: 5370055d2a3507941ba8150ee69da920, type: 3}
+    - {fileID: 21300000, guid: db48d1209328ea6499f7a627f0d76b2a, type: 3}
+    - {fileID: 21300000, guid: d2c5409d6b5ce284b8a4d0acea69d80a, type: 3}
+    - {fileID: 21300000, guid: 9ee86811cebe94640b382d55c0ddb895, type: 3}
+    - {fileID: 21300000, guid: 1f9b8141d90579d4b918e9e08a7070aa, type: 3}
+    - {fileID: 21300000, guid: 054d8b88ece8c314ca74ad961ba79a68, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -35,7 +65,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 31
     - Name: 
       Entry: 7
       Data: 
@@ -56,10 +86,910 @@ MonoBehaviour:
       Data: "\u6728\u5251"
     - Name: description
       Entry: 1
-      Data: "\u521D\u7EA7\u6B66\u5668"
+      Data: "\u957F\u5251"
     - Name: type
       Entry: 3
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01120
+    - Name: $v
+      Entry: 7
+      Data: 3|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01120
+    - Name: icon
+      Entry: 10
+      Data: 1
+    - Name: name
+      Entry: 1
+      Data: "\u53CD\u9F7F\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01130
+    - Name: $v
+      Entry: 7
+      Data: 4|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01130
+    - Name: icon
+      Entry: 10
+      Data: 2
+    - Name: name
+      Entry: 1
+      Data: "\u53CC\u5203\u91CD\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01140
+    - Name: $v
+      Entry: 7
+      Data: 5|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01140
+    - Name: icon
+      Entry: 10
+      Data: 3
+    - Name: name
+      Entry: 1
+      Data: "\u7384\u94C1\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01150
+    - Name: $v
+      Entry: 7
+      Data: 6|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01150
+    - Name: icon
+      Entry: 10
+      Data: 4
+    - Name: name
+      Entry: 1
+      Data: "\u95EA\u9F7F\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01160
+    - Name: $v
+      Entry: 7
+      Data: 7|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01160
+    - Name: icon
+      Entry: 10
+      Data: 5
+    - Name: name
+      Entry: 1
+      Data: "\u7834\u98CE\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01170
+    - Name: $v
+      Entry: 7
+      Data: 8|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01170
+    - Name: icon
+      Entry: 10
+      Data: 6
+    - Name: name
+      Entry: 1
+      Data: "\u9EC4\u91D1\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01180
+    - Name: $v
+      Entry: 7
+      Data: 9|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01180
+    - Name: icon
+      Entry: 10
+      Data: 7
+    - Name: name
+      Entry: 1
+      Data: "\u9AB7\u9AC5\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01190
+    - Name: $v
+      Entry: 7
+      Data: 10|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01190
+    - Name: icon
+      Entry: 10
+      Data: 8
+    - Name: name
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 011A0
+    - Name: $v
+      Entry: 7
+      Data: 11|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 011A0
+    - Name: icon
+      Entry: 10
+      Data: 9
+    - Name: name
+      Entry: 1
+      Data: "\u53CD\u94A9\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 011B0
+    - Name: $v
+      Entry: 7
+      Data: 12|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 011B0
+    - Name: icon
+      Entry: 10
+      Data: 10
+    - Name: name
+      Entry: 1
+      Data: "\u5929\u4F7F\u4E4B\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 011C0
+    - Name: $v
+      Entry: 7
+      Data: 13|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 011C0
+    - Name: icon
+      Entry: 10
+      Data: 11
+    - Name: name
+      Entry: 1
+      Data: "\u7B77\u5B50\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 011D0
+    - Name: $v
+      Entry: 7
+      Data: 14|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 011D0
+    - Name: icon
+      Entry: 10
+      Data: 12
+    - Name: name
+      Entry: 1
+      Data: "\u7EA2\u5B9D\u77F3\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 011E0
+    - Name: $v
+      Entry: 7
+      Data: 15|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 011E0
+    - Name: icon
+      Entry: 10
+      Data: 13
+    - Name: name
+      Entry: 1
+      Data: "\u5BD2\u51B0\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 011F0
+    - Name: $v
+      Entry: 7
+      Data: 16|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 011F0
+    - Name: icon
+      Entry: 10
+      Data: 14
+    - Name: name
+      Entry: 1
+      Data: "\u9752\u950B\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 011G0
+    - Name: $v
+      Entry: 7
+      Data: 17|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 011G0
+    - Name: icon
+      Entry: 10
+      Data: 15
+    - Name: name
+      Entry: 1
+      Data: "\u70C8\u9633\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 011H0
+    - Name: $v
+      Entry: 7
+      Data: 18|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 011H0
+    - Name: icon
+      Entry: 10
+      Data: 16
+    - Name: name
+      Entry: 1
+      Data: "\u90AA\u773C\u5251"
+    - Name: description
+      Entry: 1
+      Data: "\u957F\u5251"
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01210
+    - Name: $v
+      Entry: 7
+      Data: 19|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01210
+    - Name: icon
+      Entry: 10
+      Data: 17
+    - Name: name
+      Entry: 1
+      Data: "\u6C99\u62C9\u571F\u53F8"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01220
+    - Name: $v
+      Entry: 7
+      Data: 20|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01220
+    - Name: icon
+      Entry: 10
+      Data: 18
+    - Name: name
+      Entry: 1
+      Data: "\u8349\u8393\u679C\u51BB"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01230
+    - Name: $v
+      Entry: 7
+      Data: 21|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01230
+    - Name: icon
+      Entry: 10
+      Data: 19
+    - Name: name
+      Entry: 1
+      Data: "\u5976\u6CB9\u751C\u70B9"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01240
+    - Name: $v
+      Entry: 7
+      Data: 22|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01240
+    - Name: icon
+      Entry: 10
+      Data: 20
+    - Name: name
+      Entry: 1
+      Data: "\u714E\u86CB\u6C99\u62C9"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01250
+    - Name: $v
+      Entry: 7
+      Data: 23|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01250
+    - Name: icon
+      Entry: 10
+      Data: 21
+    - Name: name
+      Entry: 1
+      Data: "\u5976\u6CB9\u745E\u58EB\u5377"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01260
+    - Name: $v
+      Entry: 7
+      Data: 24|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01260
+    - Name: icon
+      Entry: 10
+      Data: 22
+    - Name: name
+      Entry: 1
+      Data: "\u5DE7\u514B\u529B\u86CB\u7CD5"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01270
+    - Name: $v
+      Entry: 7
+      Data: 25|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01270
+    - Name: icon
+      Entry: 10
+      Data: 23
+    - Name: name
+      Entry: 1
+      Data: "\u9999\u8549\u5939\u5FC3\u997C"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01280
+    - Name: $v
+      Entry: 7
+      Data: 26|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01280
+    - Name: icon
+      Entry: 10
+      Data: 24
+    - Name: name
+      Entry: 1
+      Data: "\u852C\u83DC\u70ED\u72D7"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 01290
+    - Name: $v
+      Entry: 7
+      Data: 27|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 01290
+    - Name: icon
+      Entry: 10
+      Data: 25
+    - Name: name
+      Entry: 1
+      Data: "\u6C34\u679C\u5E03\u4E01"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 012A0
+    - Name: $v
+      Entry: 7
+      Data: 28|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 012A0
+    - Name: icon
+      Entry: 10
+      Data: 26
+    - Name: name
+      Entry: 1
+      Data: "\u8C46\u8150\u5E74\u7CD5"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 012B0
+    - Name: $v
+      Entry: 7
+      Data: 29|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 012B0
+    - Name: icon
+      Entry: 10
+      Data: 27
+    - Name: name
+      Entry: 1
+      Data: "\u67E0\u6AAC\u571F\u53F8"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 012C0
+    - Name: $v
+      Entry: 7
+      Data: 30|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 012C0
+    - Name: icon
+      Entry: 10
+      Data: 28
+    - Name: name
+      Entry: 1
+      Data: "\u9E21\u86CB\u8089\u5377"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 012D0
+    - Name: $v
+      Entry: 7
+      Data: 31|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 012D0
+    - Name: icon
+      Entry: 10
+      Data: 29
+    - Name: name
+      Entry: 1
+      Data: "\u8461\u8404\u51B0\u6DC7\u6DCB"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 012E0
+    - Name: $v
+      Entry: 7
+      Data: 32|Action3rd.StorableItemInfo, Assembly-CSharp
+    - Name: id
+      Entry: 1
+      Data: 012E0
+    - Name: icon
+      Entry: 10
+      Data: 30
+    - Name: name
+      Entry: 1
+      Data: "\u6D77\u82D4\u5BFF\u53F8"
+    - Name: description
+      Entry: 1
+      Data: "\u56DE\u590D20%\u8840\u91CF"
+    - Name: type
+      Entry: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 

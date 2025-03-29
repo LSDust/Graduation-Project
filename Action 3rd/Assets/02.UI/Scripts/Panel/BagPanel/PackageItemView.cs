@@ -33,10 +33,12 @@ namespace Action3rd.UI
 
         private void SetFirstItem()
         {
-            Transform firstItem = this.content.GetChild(0);
+            PackageItem firstItem = this.content.childCount > 0
+                ? this.content.GetChild(0).GetComponent<PackageItem>()
+                : null;
             if (firstItem != null)
             {
-                SetCurrentItem(firstItem.GetComponent<PackageItem>());
+                SetCurrentItem(firstItem);
             }
         }
 
