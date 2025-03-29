@@ -24,7 +24,7 @@ namespace Action3rd.UI
             CurrentItemChanged?.Invoke(item);
         }
 
-        private void Refresh()
+        public void Refresh()
         {
             Clear();
             SpawnItem();

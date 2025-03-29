@@ -42,10 +42,11 @@ namespace Action3rd
             // PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(6, id));
             // PlayerDynamicData.ObtainItem(20);
             // PlayerDynamicData.PackageItemDataDic.Clear();
-            PlayerDynamicData.PackageItemDataDic[StorableItemType.武器]
-                .Add(new StorableItemData("01110", Guid.NewGuid().ToString()));
-            PlayerDynamicData.PackageItemDataDic[StorableItemType.武器]
-                .Add(new StorableItemData("01120", Guid.NewGuid().ToString()));
+            // PlayerDynamicData.PackageItemDataDic[StorableItemType.武器]
+            //     .Add(new StorableItemData("01110", Guid.NewGuid().ToString()));
+            // PlayerDynamicData.PackageItemDataDic[StorableItemType.武器]
+            //     .Add(new StorableItemData("01120", Guid.NewGuid().ToString()));
+            PlayerDynamicData.ObtainItem(new StackableItemData("01210", Guid.NewGuid().ToString()));
             PlayerDynamicData.SavePackageItemData();
         }
 

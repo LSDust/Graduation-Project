@@ -120,19 +120,19 @@ namespace Action3rd.UI
         //     }
         // }
 
-        private void Consume()
-        {
-            this._currentItem.StorableItemData.Quantity--;
-            if (this._currentItem.StorableItemData.Quantity == 0)
-            {
-                // PlayerDynamicData.PackageItemDataDic.Remove(this._currentItem.StorableItemData.ItmId);
-                Refresh();
-            }
-            else
-            {
-                this._currentItem.itemText.text = this._currentItem.StorableItemData.Quantity.ToString();
-            }
-        }
+        // private void Consume()
+        // {
+        //     this._currentItem.StorableItemData.Quantity--;
+        //     if (this._currentItem.StorableItemData.Quantity == 0)
+        //     {
+        //         // PlayerDynamicData.PackageItemDataDic.Remove(this._currentItem.StorableItemData.ItmId);
+        //         Refresh();
+        //     }
+        //     else
+        //     {
+        //         this._currentItem.itemText.text = this._currentItem.StorableItemData.Quantity.ToString();
+        //     }
+        // }
 
         private void Equip()
         {

@@ -42,4 +42,18 @@ namespace Action3rd
             Quantity = quantity;
         }
     }
+
+    public class StackableItemData : StorableItemData
+    {
+        public StackableItemData(string infoIndex, string itmId, int durability = 100, int quantity = 1) :
+            base(infoIndex, itmId, durability, quantity)
+        {
+        }
+
+        public static StackableItemData operator +(StackableItemData a, StackableItemData b)
+        {
+            a.Quantity += b.Quantity;
+            return a;
+        }
+    }
 }

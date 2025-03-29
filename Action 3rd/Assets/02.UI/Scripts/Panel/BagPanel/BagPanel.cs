@@ -43,9 +43,9 @@ namespace Action3rd.UI
             PanelManager.ClosePanel();
         }
 
-        public override void OnEnter()
+        private void OnDestroy()
         {
-            base.OnEnter();
+            PlayerDynamicData.SavePackageItemData();
         }
 
         private void TabChanged(Toggle toggle)
@@ -72,8 +72,11 @@ namespace Action3rd.UI
             this._currentItem.StorableItemData.Quantity--;
             if (this._currentItem.StorableItemData.Quantity == 0)
             {
-                // PlayerDynamicData.PackageItemDataDic.Remove(this._currentItem.StorableItemData.ItmId);
-                // Refresh();
+                StorableItemType type = PlayerStaticData.StorableItemInfoConfig
+                    .ItemInfos[this._currentItem.StorableItemData.InfoIndex].type;
+                PlayerDynamicData.PackageItemDataDic[type].Remove(this._currentItem.StorableItemData);
+                //TODO:检查
+                this.packageItemViews[_currentTypeID].GetComponent<PackageItemView>().Refresh();
             }
             else
             {

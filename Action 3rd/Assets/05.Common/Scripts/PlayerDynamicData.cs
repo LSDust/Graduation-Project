@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Linq;
 
 namespace Action3rd
 {
@@ -35,27 +36,37 @@ namespace Action3rd
         {
         }
 
-        //todo:infoIndex从静态数据字典的key中随机生成
-        // public static void ObtainItem(int infoIndex)
-        // {
-        //     StorableItemInfoConfig info = Resources.Load<StorableItemInfoConfig>($"StorableItemInfoConfig");
-        //     if (info.ItemInfos[infoIndex].storableItemType == StorableItemType.武器)
-        //     {
-        //         string id = Guid.NewGuid().ToString();
-        //         PlayerDynamicData.PackageItemDataDic.Add(id, new StorableItemData(infoIndex, id));
-        //     }
-        //     else if (info.ItemInfos[infoIndex].storableItemType == StorableItemType.食物)
-        //     {
-        //         if (PlayerDynamicData.PackageItemDataDic.ContainsKey(infoIndex.ToString()))
-        //         {
-        //             PlayerDynamicData.PackageItemDataDic[infoIndex.ToString()].Quantity++;
-        //         }
-        //         else
-        //         {
-        //             PlayerDynamicData.PackageItemDataDic.Add(infoIndex.ToString(),
-        //                 new StorableItemData(infoIndex, infoIndex.ToString()));
-        //         }
-        //     }
-        // }
+        /// <summary>
+        /// 获得物品(可堆叠或不可堆叠)
+        /// </summary>
+        /// <param name="itemData">新物品</param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void ObtainItem(StorableItemData itemData)
+        {
+            switch (PlayerStaticData.StorableItemInfoConfig.ItemInfos[itemData.InfoIndex].type)
+            {
+                case StorableItemType.武器:
+                    PackageItemDataDic[StorableItemType.武器].Add(itemData);
+                    break;
+                case StorableItemType.食物:
+                    {
+                        StorableItemData a = PackageItemDataDic[StorableItemType.食物]
+                            .FirstOrDefault(v => v.InfoIndex == itemData.InfoIndex);
+
+                        if (a != null)
+                        {
+                            a.Quantity += itemData.Quantity;
+                        }
+                        else
+                        {
+                            PackageItemDataDic[StorableItemType.食物].Add(itemData);
+                        }
+
+                        break;
+                    }
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }
