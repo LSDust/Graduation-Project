@@ -72,7 +72,7 @@ namespace Action3rd.UI
             this._currentItem.StorableItemData.Quantity--;
             if (this._currentItem.StorableItemData.Quantity == 0)
             {
-                PlayerDynamicData.PackageItemDataDic.Remove(this._currentItem.StorableItemData.ItmId);
+                // PlayerDynamicData.PackageItemDataDic.Remove(this._currentItem.StorableItemData.ItmId);
                 // Refresh();
             }
             else

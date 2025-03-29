@@ -10,16 +10,5 @@ namespace Action3rd
 
         public static StorableItemInfoConfig StorableItemInfoConfig => _storableItemInfoConfig ??=
             Resources.Load<StorableItemInfoConfig>($"StorableItemInfoConfig");
-        // {
-        //     get
-        //     {
-        //         if (_storableItemInfoConfig == null)
-        //         {
-        //             _storableItemInfoConfig = Resources.Load<StorableItemInfoConfig>($"StorableItemInfoConfig");
-        //         }
-        //
-        //         return _storableItemInfoConfig;
-        //     }
-        // }
     }
 }

@@ -30,7 +30,7 @@ namespace Action3rd.UI
 
         private void OnDisable()
         {
-            PlayerDynamicData.SavePackageItemData();
+            // PlayerDynamicData.SavePackageItemData();
         }
 
         private void Refresh()
@@ -125,7 +125,7 @@ namespace Action3rd.UI
             this._currentItem.StorableItemData.Quantity--;
             if (this._currentItem.StorableItemData.Quantity == 0)
             {
-                PlayerDynamicData.PackageItemDataDic.Remove(this._currentItem.StorableItemData.ItmId);
+                // PlayerDynamicData.PackageItemDataDic.Remove(this._currentItem.StorableItemData.ItmId);
                 Refresh();
             }
             else

@@ -12,13 +12,17 @@ namespace Action3rd
     {
         private static readonly string FilePath = Path.Combine(Application.persistentDataPath, "PackageItemDatas.json");
 
-        private static Dictionary<string, StorableItemData> _packageItemDataDic;
+        private static Dictionary<StorableItemType, List<StorableItemData>> _packageItemDataDic;
 
-        public static Dictionary<string, StorableItemData> PackageItemDataDic => _packageItemDataDic ??=
-            Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, StorableItemData>>
+        public static Dictionary<StorableItemType, List<StorableItemData>> PackageItemDataDic => _packageItemDataDic ??=
+            Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<StorableItemType, List<StorableItemData>>>
             (
                 LocalFileStreamIO.ReadStringFromFile(FilePath)
-            );
+            ) ?? new Dictionary<StorableItemType, List<StorableItemData>>()
+            {
+                { StorableItemType.武器, new List<StorableItemData>() },
+                { StorableItemType.食物, new List<StorableItemData>() }
+            };
 
         public static void SavePackageItemData()
         {

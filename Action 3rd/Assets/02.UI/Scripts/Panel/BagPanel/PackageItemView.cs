@@ -53,19 +53,16 @@ namespace Action3rd.UI
 
         private void SpawnItem()
         {
-            foreach (var t in PlayerDynamicData.PackageItemDataDic)
+            foreach (var t in PlayerDynamicData.PackageItemDataDic[this.tabPage])
             {
                 StorableItemInfo storableItemInfo =
-                    PlayerStaticData.StorableItemInfoConfig.ItemInfos[t.Value.InfoIndex]; //通过动态数据拿到静态数据
-                if (storableItemInfo.type != tabPage)
-                {
-                    continue;
-                }
+                    PlayerStaticData.StorableItemInfoConfig.ItemInfos[t.InfoIndex]; //通过动态数据拿到静态数据
 
                 PackageItem pi = Instantiate<PackageItem>(packageItemPrefab, this.content.transform);
                 pi.OnClick += SetCurrentItem;
-                pi.StorableItemData = t.Value; //赋值数据
+                pi.StorableItemData = t; //赋值数据
                 pi.iconImage.sprite = storableItemInfo.icon; //spriteAtlas.GetSprite(storableItemInfo.fileName);
+                //todo:待改
                 if (storableItemInfo.type == StorableItemType.武器)
                 {
                     pi.itemText.text = pi.StorableItemData.Durability.ToString() + "%";
