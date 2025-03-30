@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Action3rd
 {
@@ -40,20 +42,6 @@ namespace Action3rd
             ItmId = itmId;
             Durability = durability;
             Quantity = quantity;
-        }
-    }
-
-    public class StackableItemData : StorableItemData
-    {
-        public StackableItemData(string infoIndex, string itmId, int durability = 100, int quantity = 1) :
-            base(infoIndex, itmId, durability, quantity)
-        {
-        }
-
-        public static StackableItemData operator +(StackableItemData a, StackableItemData b)
-        {
-            a.Quantity += b.Quantity;
-            return a;
         }
     }
 }

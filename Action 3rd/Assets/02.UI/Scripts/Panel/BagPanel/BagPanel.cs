@@ -23,6 +23,8 @@ namespace Action3rd.UI
         [SerializeField] [Tooltip("所有种类的物品窗口")]
         private GameObject[] packageItemViews;
 
+        [SerializeField] [Tooltip("使用按钮")] private Button[] useButtons;
+
         private int _currentTypeID = 0;
         private PackageItem _currentItem;
 
@@ -51,6 +53,7 @@ namespace Action3rd.UI
         private void TabChanged(Toggle toggle)
         {
             this.packageItemViews[_currentTypeID].SetActive(false);
+            this.useButtons[_currentTypeID].gameObject.SetActive(false);
             this._currentTypeID = toggle.name switch
             {
                 "武器" => 0,
@@ -58,6 +61,7 @@ namespace Action3rd.UI
                 _ => this._currentTypeID
             };
             this.packageItemViews[_currentTypeID].SetActive(true);
+            this.useButtons[_currentTypeID].gameObject.SetActive(true);
         }
 
         private void SetCurrentItem(PackageItem item)
@@ -75,7 +79,6 @@ namespace Action3rd.UI
                 StorableItemType type = PlayerStaticData.StorableItemInfoConfig
                     .ItemInfos[this._currentItem.StorableItemData.InfoIndex].type;
                 PlayerDynamicData.PackageItemDataDic[type].Remove(this._currentItem.StorableItemData);
-                //TODO:检查
                 this.packageItemViews[_currentTypeID].GetComponent<PackageItemView>().Refresh();
             }
             else

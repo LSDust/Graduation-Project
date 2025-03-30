@@ -46,7 +46,7 @@ namespace Action3rd
             //     .Add(new StorableItemData("01110", Guid.NewGuid().ToString()));
             // PlayerDynamicData.PackageItemDataDic[StorableItemType.武器]
             //     .Add(new StorableItemData("01120", Guid.NewGuid().ToString()));
-            PlayerDynamicData.ObtainItem(new StackableItemData("01210", Guid.NewGuid().ToString()));
+            PlayerDynamicData.ObtainItem(new StorableItemData("01210", Guid.NewGuid().ToString()));
             PlayerDynamicData.SavePackageItemData();
         }
 
