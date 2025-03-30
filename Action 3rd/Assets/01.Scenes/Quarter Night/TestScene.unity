@@ -482,6 +482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d311577231e6f1f478226e91acc8fc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  configFile: {fileID: 11400000, guid: 2e78730f14495a2439c0b04ab9b38788, type: 2}
+  jsonStr: 
 --- !u!4 &220019437
 Transform:
   m_ObjectHideFlags: 0
