@@ -1,62 +1,47 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
+using Unity.VisualScripting;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Action3rd
 {
-    public class StorableItemData
-    {
-        public int ItemInfoIndex;
-
-        //动态数据
-        public string ItmId;
-        public bool IsNew;
-        public int Quantity;
-        public int WeaponLevel;
-
-        public StorableItemData(int itemInfoIndex, string itmId, int level = 0, bool isNew = true)
-        {
-            ItemInfoIndex = itemInfoIndex;
-            ItmId = itmId;
-            WeaponLevel = level;
-            IsNew = isNew;
-        }
-    }
-
     [CreateAssetMenu(fileName = "StorableItemInfoConfig.asset", menuName = "Action3rd/StorableItemInfoConfig")]
-    public class StorableItemInfoConfig : ScriptableObject
+    public class StorableItemInfoConfig : SerializedScriptableObject
     {
-        public List<StorableItemInfo> items = new List<StorableItemInfo>();
-
-        private void OnValidate()
-        {
-            foreach (StorableItemInfo ii in items)
-            {
-                if (ii.itemIcon != null)
-                {
-                    ii.fileName = ii.itemIcon.name;
-// #if UNITY_EDITOR
-                    // ii.atlasPath = UnityEditor.AssetDatabase.GetAssetPath(ii.itemIcon);
-// #endif
-                }
-                else
-                {
-                    ii.fileName = string.Empty;
-                    // ii.atlasPath = string.Empty;
-                }
-            }
-        }
+        public Dictionary<string, StorableItemInfo> ItemInfos = new Dictionary<string, StorableItemInfo>();
     }
 
     [Serializable]
     public class StorableItemInfo
     {
-        [HideInInspector] public string fileName;
-        public Sprite itemIcon;
-        public string itemName;
-        public StorableItemType storableItemType;
+        public string id;
+        public Sprite icon;
+        public string name;
         public string description;
+
+        public StorableItemType type; //这是不用展示文本的信息
     }
 
-    public enum StorableItemType { 武器, 食物 }
+    public enum StorableItemType { 武器 = 1, 食物 }
+
+    public class StorableItemData
+    {
+        public readonly string InfoIndex;
+
+        //动态数据
+        public readonly string ItmId;
+        public int Durability;
+        public int Quantity;
+
+        public StorableItemData(string infoIndex, string itmId, int durability = 100, int quantity = 1)
+        {
+            InfoIndex = infoIndex;
+            ItmId = itmId;
+            Durability = durability;
+            Quantity = quantity;
+        }
+    }
 }

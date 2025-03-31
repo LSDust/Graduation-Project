@@ -32,7 +32,8 @@ namespace Action3rd
                 }
                 else
                 {
-                    Debug.LogWarning("文件不存在: " + filePath);
+                    Debug.Log("文件不存在初次创建文件: " + filePath);
+                    File.WriteAllText(filePath, string.Empty);
                     return null;
                 }
             }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Action3rd
@@ -16,6 +17,9 @@ namespace Action3rd
             if (hp <= 0)
             {
                 Destroy(gameObject);
+                PlayerDynamicData.ObtainItem(new StorableItemData(PlayerStaticData.GetRandomKey(),
+                    Guid.NewGuid().ToString()));
+                PlayerDynamicData.SavePackageItemData();
             }
         }
 
