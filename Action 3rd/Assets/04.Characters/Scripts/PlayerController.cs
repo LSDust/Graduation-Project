@@ -8,6 +8,7 @@ namespace Action3rd
     {
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int Jump = Animator.StringToHash("Jump");
         private Animator _animator;
         private CharacterController _characterController;
 
@@ -66,7 +67,8 @@ namespace Action3rd
         {
             if (isGrounded)
             {
-                g_Velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                _animator.SetTrigger(Jump);
+                //g_Velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
         }
 
