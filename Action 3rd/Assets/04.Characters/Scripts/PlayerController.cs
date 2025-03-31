@@ -68,7 +68,7 @@ namespace Action3rd
             if (isGrounded)
             {
                 _animator.SetTrigger(Jump);
-                g_Velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                //g_Velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
         }
 
