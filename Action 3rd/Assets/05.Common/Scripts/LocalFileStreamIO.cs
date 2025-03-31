@@ -32,9 +32,9 @@ namespace Action3rd
                 }
                 else
                 {
-                    Debug.Log("文件不存在初次创建文件: " + filePath);
+                    Debug.Log("文件不存在,初次创建文件: " + filePath);
                     File.WriteAllText(filePath, string.Empty);
-                    return null;
+                    return string.Empty;
                 }
             }
             catch (System.Exception e)
