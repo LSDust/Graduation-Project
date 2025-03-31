@@ -8,6 +8,9 @@ namespace Action3rd
     {
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int Jump = Animator.StringToHash("Jump");
+        private static readonly int Sprint = Animator.StringToHash("Sprint");
+        private static readonly int Skill1 = Animator.StringToHash("Skill1");
         private Animator _animator;
         private CharacterController _characterController;
 
@@ -26,6 +29,8 @@ namespace Action3rd
         private Vector2 _playerInputVec;//玩家输入的方向
 
         public float jumpHeight = 3f;//跳跃高度
+
+        //private bool isRunning;
         protected void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -38,6 +43,8 @@ namespace Action3rd
             Cursor.lockState = CursorLockMode.Locked;
             InputManager.Instance.InputAssetObject.Player.Jump.performed += GetPlayerJumpInput;
             InputManager.Instance.InputAssetObject.Player.Fire.performed += _ => _animator.SetTrigger(Attack);
+            InputManager.Instance.InputAssetObject.Player.Skill1.performed += _ => _animator.SetTrigger(Skill1);
+            InputManager.Instance.InputAssetObject.Player.Sprint.performed += GetPlayerSprintInput;
         }
 
         private void Update()
@@ -45,29 +52,44 @@ namespace Action3rd
             _playerInputVec = InputManager.Instance.InputAssetObject.Player.Move.ReadValue<Vector2>();
             _animator.SetFloat(Speed, _playerInputVec.magnitude, 0.1f, Time.deltaTime);
             RotatePlayer();
+            //CancelRunning();
         }
 
         private void OnAnimatorMove()
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, LayerMask.GetMask("Ground"));
-            if(isGrounded && g_Velocity.y < 0)
+            if (isGrounded && g_Velocity.y < 0)
             {
                 g_Velocity.y = 0;
             }
 
             Vector3 moveSpeed = _animator.velocity;
-            _characterController.SimpleMove(moveSpeed);
-
             g_Velocity.y += gravity * Time.deltaTime;
-            _characterController.Move(g_Velocity * Time.deltaTime);
+            _characterController.Move((moveSpeed + g_Velocity) * Time.deltaTime);
+
+            //if (isRunning)
+            //{
+            //    _characterController.SimpleMove(moveSpeed);
+            //}
         }
 
         private void GetPlayerJumpInput(InputAction.CallbackContext ctx)
         {
             if (isGrounded)
             {
-                g_Velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                _animator.SetTrigger(Jump);
+
+                //g_Velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
+        }
+
+        private void GetPlayerSprintInput(InputAction.CallbackContext ctx)
+        {
+            _animator.SetTrigger(Sprint);
+            // 瞬时位移
+            Vector3 forward = playerTramsform.forward;
+            Vector3 moveSpeed = _animator.velocity * 2;
+            _characterController.Move((moveSpeed + g_Velocity) * Time.deltaTime);
         }
 
         static Vector3 幅角相加(Vector3 a, Vector3 b)
