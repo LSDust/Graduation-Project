@@ -18,7 +18,7 @@ namespace Action3rd
         public static Dictionary<StorableItemType, List<StorableItemData>> PackageItemDataDic => _packageItemDataDic ??=
             Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<StorableItemType, List<StorableItemData>>>
             (
-                LocalFileStreamIO.ReadStringFromFile(FilePath) ?? "{}"
+                LocalFileStreamIO.ReadStringFromFile(FilePath)
             ) ?? new Dictionary<StorableItemType, List<StorableItemData>>()
             {
                 { StorableItemType.武器, new List<StorableItemData>() },
