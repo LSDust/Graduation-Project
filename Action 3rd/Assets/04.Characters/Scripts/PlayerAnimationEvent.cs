@@ -45,6 +45,8 @@ namespace Action3rd
                     t.GetComponent<WithHp>().UnderAttack(20);
                 }
             }
+
+            Loss();
         }
 
         private void A2Event()
@@ -91,6 +93,23 @@ namespace Action3rd
                     t.GetComponent<WithHp>().UnderAttack(30);
                 }
             }
+        }
+
+        private static void Loss()
+        {
+            if (PlayerDynamicData.PlayerStateDate.Weapon.Durability > 1)
+            {
+                PlayerDynamicData.PlayerStateDate.Weapon.Durability--;
+            }
+            else
+            {
+                Debug.Log("要销毁");
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            PlayerDynamicData.SavePlayerStateDate();
         }
     }
 }

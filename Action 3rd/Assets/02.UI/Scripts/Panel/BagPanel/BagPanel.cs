@@ -40,6 +40,12 @@ namespace Action3rd.UI
             }
         }
 
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            this.packageItemViews[_currentTypeID].GetComponent<PackageItemView>().Refresh();
+        }
+
         private void CloseBagPanel()
         {
             PanelManager.ClosePanel();
@@ -90,6 +96,8 @@ namespace Action3rd.UI
         public void Equip()
         {
             Debug.Log("装备" + this._currentItem.StorableItemData.InfoIndex);
+            PlayerDynamicData.PlayerStateDate.Weapon = this._currentItem.StorableItemData;
+            this.packageItemViews[_currentTypeID].GetComponent<PackageItemView>().Refresh();
         }
     }
 }

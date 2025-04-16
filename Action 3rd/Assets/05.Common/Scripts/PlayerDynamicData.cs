@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using Unity.VisualScripting;
 
 namespace Action3rd
 {
@@ -75,11 +76,31 @@ namespace Action3rd
 
         private static PlayerStateDate _playerStateDate;
 
-        public static PlayerStateDate PlayerStateDate => _playerStateDate ??=
-            Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
-            (
-                LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
-            ) ?? new PlayerStateDate();
+        // public static PlayerStateDate PlayerStateDate => _playerStateDate ??=
+        //     Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
+        //     (
+        //         LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
+        //     ) ?? new PlayerStateDate();
+        public static PlayerStateDate PlayerStateDate
+        {
+            get
+            {
+                if (_playerStateDate != null) { return _playerStateDate; }
+
+                _playerStateDate = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
+                (
+                    LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
+                );
+                if (_playerStateDate != null)
+                {
+                    _playerStateDate.Weapon = PackageItemDataDic[StorableItemType.武器]
+                        .FirstOrDefault(x => x.ItmId == _playerStateDate.Weapon.ItmId);
+                }
+
+                return _playerStateDate;
+            }
+            set => _playerStateDate = value;
+        }
 
         public static void SavePlayerStateDate()
         {
@@ -91,6 +112,13 @@ namespace Action3rd
 
     public class PlayerStateDate
     {
-        public string WeaponID;
+        public PlayerStateDate(StorableItemData weapon = null, int hp = 100)
+        {
+            Weapon = weapon;
+            Hp = hp;
+        }
+
+        public StorableItemData Weapon;
+        public int Hp;
     }
 }
