@@ -182,9 +182,10 @@ MonoBehaviour:
   m_text: "\u5F00\u59CB\u6E38\u620F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0fea9a8fed189c40a48b5c6e6fbce2b, type: 2}
-  m_sharedMaterial: {fileID: -5864819101146089979, guid: f0fea9a8fed189c40a48b5c6e6fbce2b,
+  m_sharedMaterial: {fileID: 2145074614191580178, guid: f0fea9a8fed189c40a48b5c6e6fbce2b,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2145074614191580178, guid: f0fea9a8fed189c40a48b5c6e6fbce2b, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:

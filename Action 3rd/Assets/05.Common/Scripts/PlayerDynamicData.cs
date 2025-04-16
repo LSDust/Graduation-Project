@@ -68,5 +68,29 @@ namespace Action3rd
                     throw new ArgumentOutOfRangeException();
             }
         }
+        //=================
+
+        private static readonly string PlayerStateDateFilePath =
+            Path.Combine(Application.persistentDataPath, "PlayerStateDate.json");
+
+        private static PlayerStateDate _playerStateDate;
+
+        public static PlayerStateDate PlayerStateDate => _playerStateDate ??=
+            Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
+            (
+                LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
+            ) ?? new PlayerStateDate();
+
+        public static void SavePlayerStateDate()
+        {
+            string jsonData =
+                Newtonsoft.Json.JsonConvert.SerializeObject(PlayerStateDate, Newtonsoft.Json.Formatting.Indented);
+            LocalFileStreamIO.WriteStringToFile(PlayerStateDateFilePath, jsonData);
+        }
+    }
+
+    public class PlayerStateDate
+    {
+        public string WeaponID;
     }
 }

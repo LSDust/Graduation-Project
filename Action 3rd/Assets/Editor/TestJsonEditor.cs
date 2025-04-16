@@ -9,13 +9,6 @@ namespace Action3rd
     [CustomEditor(typeof(TestJson))]
     public class TestJsonEditor : Editor
     {
-        // private SerializedProperty _jsonStr;
-        //
-        // private void OnEnable()
-        // {
-        //     _jsonStr = serializedObject.FindProperty("jsonStr");
-        // }
-
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();

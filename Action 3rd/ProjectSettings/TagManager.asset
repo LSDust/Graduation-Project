@@ -7,6 +7,7 @@ TagManager:
   - PlayerSkill
   - Enemy
   - Ground
+  - Monster
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ namespace Action3rd.UI
     public class PackageItem : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("子物体")] public Image iconImage;
-
+        public Image isEquip;
         public GameObject selectedEdge;
         [Tooltip("文本")] public TMP_Text itemText;
 
