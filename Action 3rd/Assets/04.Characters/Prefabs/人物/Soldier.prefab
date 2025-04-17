@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 7186269799199924762}
   - component: {fileID: 4954314743741347214}
   - component: {fileID: 534877979701060996}
+  - component: {fileID: 1046226271615447602}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Player
@@ -220,6 +221,19 @@ MonoBehaviour:
   a2VFXPosition: {fileID: 5534714265763522439}
   a3VFXPosition: {fileID: 1027507082046680819}
   a4VFXPosition: {fileID: 3711942145493367338}
+--- !u!114 &1046226271615447602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084828286470923537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e39bc1b481a6194399ad2045a5382b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
 --- !u!1 &1311256503511530852
 GameObject:
   m_ObjectHideFlags: 0

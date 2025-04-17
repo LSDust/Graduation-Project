@@ -43,7 +43,14 @@ namespace Action3rd.UI
         public override void OnEnter()
         {
             base.OnEnter();
+            Time.timeScale = 0f;
             this.packageItemViews[_currentTypeID].GetComponent<PackageItemView>().Refresh();
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            Time.timeScale = 1f;
         }
 
         private void CloseBagPanel()
@@ -80,6 +87,7 @@ namespace Action3rd.UI
         public void Consume()
         {
             this._currentItem.StorableItemData.Quantity--;
+            GameObject.FindWithTag("Player").GetComponent<WithHp>().hp += 20;
             if (this._currentItem.StorableItemData.Quantity == 0)
             {
                 StorableItemType type = PlayerStaticData.StorableItemInfoConfig

@@ -10,6 +10,18 @@ namespace Action3rd.UI
         [SerializeField] private Slider globalVolumeSlider;
         [SerializeField] private Slider skillVolumeSlider;
 
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            Time.timeScale = 0f;
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            Time.timeScale = 1f;
+        }
+
         private void Awake()
         {
             saveButton.onClick.AddListener(SaveSetting);

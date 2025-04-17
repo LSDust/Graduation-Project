@@ -14,7 +14,6 @@ namespace Action3rd
             this.hp -= damage;
             if (this.hp <= 0)
             {
-                Destroy(gameObject);
                 OnDeath?.Invoke();
             }
         }
