@@ -91,7 +91,7 @@ namespace Action3rd
                 (
                     LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
                 );
-                if (_playerStateDate != null)
+                if (_playerStateDate is { Weapon: not null })
                 {
                     _playerStateDate.Weapon = PackageItemDataDic[StorableItemType.武器]
                         .FirstOrDefault(x => x.ItmId == _playerStateDate.Weapon.ItmId);

@@ -26,7 +26,7 @@ namespace Action3rd
                 other.GetComponent<WithHp>().UnderAttack(10);
                 Destroy(this.gameObject);
             }
-            else if (other.CompareTag("Ground"))
+            if (other.CompareTag("Ground"))
             {
                 Destroy(this.gameObject);
             }

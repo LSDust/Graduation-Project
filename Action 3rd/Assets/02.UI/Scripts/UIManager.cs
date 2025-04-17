@@ -13,6 +13,7 @@ namespace Action3rd.UI
         protected override void Awake()
         {
             base.Awake();
+            DontDestroyOnLoad(this.gameObject);
             if (!PanelManager.PanelDic.ContainsKey(PanelKey.Main))
             {
                 PanelManager.PanelDic.Add(PanelKey.Main, transform.Find("Main Panel").GetComponent<MainPanel>());

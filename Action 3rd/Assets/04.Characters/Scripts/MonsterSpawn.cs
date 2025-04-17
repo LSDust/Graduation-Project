@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Action3rd
 {
@@ -12,8 +13,6 @@ namespace Action3rd
         [SerializeField] private GameObject prefabGoblin1;
         [SerializeField] private GameObject prefabDeathVFX;
         [SerializeField] private GameObject booty;
-        [SerializeField] private List<Transform> camp1Position;
-        private Camp camp1 = new Camp(4);
         private GameObject player;
 
         // Start is called before the first frame update
@@ -25,55 +24,63 @@ namespace Action3rd
         // Update is called once per frame
         void Update()
         {
-            if (camp1.MonsterList.Count < camp1.monsterCount)
+            for (int i = 0; i < campList.Count; i++)
             {
-                camp1.spawnTimer += Time.deltaTime;
-                if (camp1.spawnTimer >= camp1.RefreshTime)
+                if (campList[i].MonsterList.Count < campList[i].monsterCount)
                 {
-                    camp1.spawnTimer = 0;
-                    Refresh(camp1Position);
+                    this.spawnTimer += Time.deltaTime;
+                    if (this.spawnTimer >= RefreshTime)
+                    {
+                        this.spawnTimer = 0;
+                        Refresh(campList[i]);
+                    }
                 }
             }
         }
 
 
-        private void Refresh(List<Transform> waypoints)
+        private void Refresh(Camp camp)
         {
-            for (int i = camp1.MonsterList.Count; i < camp1.monsterCount; i++)
+            for (int i = camp.MonsterList.Count; i < camp.monsterCount; i++)
             {
                 GameObject monster =
-                    GameObject.Instantiate(prefabGoblin1); //, camp1.campPoint.position, Quaternion.identity
+                    GameObject.Instantiate(prefabGoblin1,
+                        camp.waypoints[0].transform.position + GetRandomPositionInCircle(2f),
+                        Quaternion.identity);
                 BehaviorTree bt = monster.GetComponent<BehaviorTree>();
                 ((SharedGameObject)bt.GetVariable("Player")).Value = player;
-                ((SharedTransformList)bt.GetVariable("WayPoints")).Value = waypoints;
+                ((SharedGameObjectList)bt.GetVariable("WayPoints")).Value = camp.waypoints;
                 WithHp wh = monster.GetComponent<WithHp>();
                 wh.OnDeath += () =>
                 {
                     Destroy(wh.gameObject);
                     GameObject.Instantiate(this.prefabDeathVFX, wh.transform.position, Quaternion.identity);
                     GameObject.Instantiate(this.booty, wh.transform.position + Vector3.up, Quaternion.identity);
-                    camp1.MonsterList.Remove(monster);
+                    camp.MonsterList.Remove(monster);
                 };
-                camp1.MonsterList.Add(monster);
+                camp.MonsterList.Add(monster);
             }
         }
 
         [SerializeField] private List<Camp> campList = new List<Camp>();
+        private const float RefreshTime = 10f;
+        [HideInInspector] public float spawnTimer = 0f;
+
+        Vector3 GetRandomPositionInCircle(float radius)
+        {
+            // 获取圆内的随机点
+            Vector2 randomPoint = Random.insideUnitCircle * radius;
+
+            // 转换为Vector3（y=0）
+            return new Vector3(randomPoint.x, 0f, randomPoint.y);
+        }
     }
 
     [Serializable]
     public class Camp
     {
-        public Camp(int monsterCount, float refreshTime = 3f)
-        {
-            this.monsterCount = monsterCount;
-            RefreshTime = refreshTime;
-        }
-
-        public Transform campPoints;
+        public List<GameObject> waypoints;
         public int monsterCount;
         [HideInInspector] public List<GameObject> MonsterList { get; private set; } = new List<GameObject>();
-        [HideInInspector] public readonly float RefreshTime;
-        [HideInInspector] public float spawnTimer = 0f;
     }
 }
