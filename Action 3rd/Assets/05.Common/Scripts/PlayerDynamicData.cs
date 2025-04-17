@@ -74,38 +74,38 @@ namespace Action3rd
         private static readonly string PlayerStateDateFilePath =
             Path.Combine(Application.persistentDataPath, "PlayerStateDate.json");
 
-        private static PlayerStateDate _playerStateDate;
+        private static PlayerStateDate _playerState;
 
         // public static PlayerStateDate PlayerStateDate => _playerStateDate ??=
         //     Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
         //     (
         //         LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
         //     ) ?? new PlayerStateDate();
-        public static PlayerStateDate PlayerStateDate
+        public static PlayerStateDate PlayerState
         {
             get
             {
-                if (_playerStateDate != null) { return _playerStateDate; }
+                if (_playerState != null) { return _playerState; }
 
-                _playerStateDate = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
+                _playerState = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
                 (
                     LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
                 );
-                if (_playerStateDate is { Weapon: not null })
+                if (_playerState is { Weapon: not null })
                 {
-                    _playerStateDate.Weapon = PackageItemDataDic[StorableItemType.武器]
-                        .FirstOrDefault(x => x.ItmId == _playerStateDate.Weapon.ItmId);
+                    _playerState.Weapon = PackageItemDataDic[StorableItemType.武器]
+                        .FirstOrDefault(x => x.ItmId == _playerState.Weapon.ItmId);
                 }
 
-                return _playerStateDate ?? new PlayerStateDate();
+                return _playerState ?? new PlayerStateDate();
             }
-            set => _playerStateDate = value;
+            set => _playerState = value;
         }
 
         public static void SavePlayerStateDate()
         {
             string jsonData =
-                Newtonsoft.Json.JsonConvert.SerializeObject(PlayerStateDate, Newtonsoft.Json.Formatting.Indented);
+                Newtonsoft.Json.JsonConvert.SerializeObject(PlayerState, Newtonsoft.Json.Formatting.Indented);
             LocalFileStreamIO.WriteStringToFile(PlayerStateDateFilePath, jsonData);
         }
     }
@@ -118,7 +118,18 @@ namespace Action3rd
             Hp = hp;
         }
 
-        public StorableItemData Weapon;
+        private StorableItemData weapon;
+
+        public StorableItemData Weapon
+        {
+            get => weapon;
+            set
+            {
+                Debug.Log(value?.InfoIndex);
+                weapon = value;
+            }
+        }
+
         public int Hp;
     }
 }

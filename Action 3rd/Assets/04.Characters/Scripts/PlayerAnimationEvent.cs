@@ -103,13 +103,13 @@ namespace Action3rd
 
         private static void Loss()
         {
-            if (PlayerDynamicData.PlayerStateDate?.Weapon == null) { return; }
+            if (PlayerDynamicData.PlayerState?.Weapon == null) { return; }
 
-            PlayerDynamicData.PlayerStateDate.Weapon.Durability--;
-            if (PlayerDynamicData.PlayerStateDate.Weapon?.Durability <= 0)
+            PlayerDynamicData.PlayerState.Weapon.Durability--;
+            if (PlayerDynamicData.PlayerState.Weapon?.Durability <= 0)
             {
                 PlayerDynamicData.PackageItemDataDic[StorableItemType.武器]
-                    .Remove(PlayerDynamicData.PlayerStateDate.Weapon);
+                    .Remove(PlayerDynamicData.PlayerState.Weapon);
             }
         }
 

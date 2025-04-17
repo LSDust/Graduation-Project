@@ -104,7 +104,7 @@ namespace Action3rd.UI
         public void Equip()
         {
             Debug.Log("装备" + this._currentItem.StorableItemData.InfoIndex);
-            PlayerDynamicData.PlayerStateDate.Weapon = this._currentItem.StorableItemData;
+            PlayerDynamicData.PlayerState.Weapon = this._currentItem.StorableItemData;
             this.packageItemViews[_currentTypeID].GetComponent<PackageItemView>().Refresh();
         }
     }
