@@ -63,6 +63,8 @@ namespace Action3rd
                     t.GetComponent<WithHp>().UnderAttack(25);
                 }
             }
+
+            Loss();
         }
 
         private void A3Event()
@@ -78,6 +80,8 @@ namespace Action3rd
                     t.GetComponent<WithHp>().UnderAttack(25);
                 }
             }
+
+            Loss();
         }
 
         private void A4Event()
@@ -93,17 +97,17 @@ namespace Action3rd
                     t.GetComponent<WithHp>().UnderAttack(30);
                 }
             }
+
+            Loss();
         }
 
         private static void Loss()
         {
-            if (PlayerDynamicData.PlayerStateDate.Weapon.Durability > 1)
+            PlayerDynamicData.PlayerStateDate.Weapon.Durability--;
+            if (PlayerDynamicData.PlayerStateDate.Weapon.Durability <= 0)
             {
-                PlayerDynamicData.PlayerStateDate.Weapon.Durability--;
-            }
-            else
-            {
-                Debug.Log("要销毁");
+                PlayerDynamicData.PackageItemDataDic[StorableItemType.武器]
+                    .Remove(PlayerDynamicData.PlayerStateDate.Weapon);
             }
         }
 
