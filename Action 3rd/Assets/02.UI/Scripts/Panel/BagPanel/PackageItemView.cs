@@ -65,7 +65,7 @@ namespace Action3rd.UI
                 //todo:待改
                 if (storableItemInfo.type == StorableItemType.武器)
                 {
-                    if (PlayerDynamicData.PlayerStateDate.Weapon?.ItmId == t.ItmId)
+                    if (PlayerDynamicData.PlayerStateDate?.Weapon?.ItmId == t.ItmId)
                     {
                         pi.isEquip.color = new Color(255, 255, 255, 255);
                     }

@@ -97,7 +97,7 @@ namespace Action3rd
                         .FirstOrDefault(x => x.ItmId == _playerStateDate.Weapon.ItmId);
                 }
 
-                return _playerStateDate;
+                return _playerStateDate ?? new PlayerStateDate();
             }
             set => _playerStateDate = value;
         }
