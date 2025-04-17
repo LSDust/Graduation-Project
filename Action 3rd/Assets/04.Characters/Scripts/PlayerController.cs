@@ -46,9 +46,10 @@ namespace Action3rd
             //     return;
             // }
             // Instance = this;
-            // DontDestroyOnLoad(gameObject);
             //检查是否已有实例存在，如果存在则销毁当前对象，否则将当前对象设置为实例并调用 DontDestroyOnLoad 保持单例在场景切换时不被销毁。
 
+            // DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(Camera.main);
             _animator = GetComponent<Animator>();
             _characterController = GetComponent<CharacterController>();
         }
@@ -77,7 +78,7 @@ namespace Action3rd
 
         private void OnAnimatorMove()
         {
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, LayerMask.GetMask("Ground"));
+            isGrounded = false; // Physics.CheckSphere(groundCheck.position, groundRadius, LayerMask.GetMask("Ground"));
             if (isGrounded && g_Velocity.y < 0)
             {
                 g_Velocity.y = 0;

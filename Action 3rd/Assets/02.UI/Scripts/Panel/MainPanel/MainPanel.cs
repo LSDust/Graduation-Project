@@ -9,6 +9,9 @@ namespace Action3rd.UI
     {
         [SerializeField] private Button bagButton;
 
+        [SerializeField] private Button loadMainButton;
+        [SerializeField] private Button loadDungeonButton;
+
         [SerializeField] private Button settingButton;
 
         [SerializeField] private Slider playerHpBar;
@@ -18,6 +21,18 @@ namespace Action3rd.UI
         {
             settingButton.onClick.AddListener(OpenSettingPanel);
             bagButton.onClick.AddListener(OpenBagPanel);
+            loadMainButton.onClick.AddListener(() => OpenLoadPanel(0));
+            loadMainButton.onClick.AddListener(() =>
+            {
+                loadMainButton.gameObject.SetActive(false);
+                loadDungeonButton.gameObject.SetActive(true);
+            });
+            loadDungeonButton.onClick.AddListener(() => OpenLoadPanel(1));
+            loadDungeonButton.onClick.AddListener(() =>
+            {
+                loadMainButton.gameObject.SetActive(true);
+                loadDungeonButton.gameObject.SetActive(false);
+            });
             this.playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<WithHp>();
         }
 
@@ -34,6 +49,16 @@ namespace Action3rd.UI
         private void OpenBagPanel()
         {
             PanelManager.OpenPanel(PanelKey.Bag);
+        }
+
+        private void OpenLoadPanel(int sceneIndex)
+        {
+            if (PanelManager.PanelDic[PanelKey.Load] is LoadPanel loadPanel)
+            {
+                loadPanel.loadScreenIndex = sceneIndex;
+            }
+
+            PanelManager.OpenPanel(PanelKey.Load);
         }
     }
 }

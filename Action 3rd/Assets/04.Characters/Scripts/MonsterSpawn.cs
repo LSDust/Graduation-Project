@@ -38,7 +38,6 @@ namespace Action3rd
             }
         }
 
-
         private void Refresh(Camp camp)
         {
             for (int i = camp.MonsterList.Count; i < camp.monsterCount; i++)
