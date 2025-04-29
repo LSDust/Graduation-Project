@@ -87,17 +87,24 @@ namespace Action3rd
             {
                 if (_playerState != null) { return _playerState; }
 
-                _playerState = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
-                (
-                    LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
-                );
-                if (_playerState is { Weapon: not null })
+                if (File.Exists(PlayerStateDateFilePath))
                 {
-                    _playerState.Weapon = PackageItemDataDic[StorableItemType.武器]
-                        .FirstOrDefault(x => x.ItmId == _playerState.Weapon.ItmId);
+                    _playerState = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
+                    (
+                        LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
+                    );
+                }
+                else
+                {
+                    _playerState = new PlayerStateDate();
                 }
 
-                return _playerState ?? new PlayerStateDate();
+                return _playerState ??= new PlayerStateDate();
+                // if (_playerState != null && _playerState.Weapon != null)
+                // {
+                //     _playerState.Weapon = PackageItemDataDic[StorableItemType.武器]
+                //         .FirstOrDefault(x => x.ItmId == _playerState.Weapon.ItmId);
+                // }
             }
             set => _playerState = value;
         }
@@ -114,8 +121,8 @@ namespace Action3rd
     {
         public PlayerStateDate(StorableItemData weapon = null, int hp = 100)
         {
-            Weapon = weapon;
-            Hp = hp;
+            this.weapon = weapon;
+            this.Hp = hp;
         }
 
         private StorableItemData weapon;

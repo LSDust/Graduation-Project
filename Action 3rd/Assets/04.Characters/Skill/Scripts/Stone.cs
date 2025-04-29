@@ -22,7 +22,6 @@ namespace Action3rd
         {
             if (other.CompareTag("Player"))
             {
-                Debug.Log("攻击到了玩家");
                 other.GetComponent<WithHp>().UnderAttack(10);
                 Destroy(this.gameObject);
             }
