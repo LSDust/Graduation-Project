@@ -15,6 +15,7 @@ namespace Action3rd
     {
         public event Action UpdateAssetsEnd;
         public AssetReferenceGameObject obj;
+        public Dictionary<int, int> A;
 
         // public event Action<GameObject> Action1;
         public Dictionary<List<string>, Object> PrefabDict = new();
