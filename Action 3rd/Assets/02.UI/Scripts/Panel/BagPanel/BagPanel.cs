@@ -40,6 +40,19 @@ namespace Action3rd.UI
             }
         }
 
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            Time.timeScale = 0f;
+            this.packageItemViews[_currentTypeID].GetComponent<PackageItemView>().Refresh();
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            Time.timeScale = 1f;
+        }
+
         private void CloseBagPanel()
         {
             PanelManager.ClosePanel();
@@ -74,6 +87,7 @@ namespace Action3rd.UI
         public void Consume()
         {
             this._currentItem.StorableItemData.Quantity--;
+            GameObject.FindWithTag("Player").GetComponent<WithHp>().hp += 20;
             if (this._currentItem.StorableItemData.Quantity == 0)
             {
                 StorableItemType type = PlayerStaticData.StorableItemInfoConfig
@@ -90,6 +104,8 @@ namespace Action3rd.UI
         public void Equip()
         {
             Debug.Log("装备" + this._currentItem.StorableItemData.InfoIndex);
+            PlayerDynamicData.PlayerState.Weapon = this._currentItem.StorableItemData;
+            this.packageItemViews[_currentTypeID].GetComponent<PackageItemView>().Refresh();
         }
     }
 }

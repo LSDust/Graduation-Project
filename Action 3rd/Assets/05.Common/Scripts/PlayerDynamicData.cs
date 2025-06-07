@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using Unity.VisualScripting;
 
 namespace Action3rd
 {
@@ -68,5 +69,74 @@ namespace Action3rd
                     throw new ArgumentOutOfRangeException();
             }
         }
+        //=================
+
+        private static readonly string PlayerStateDateFilePath =
+            Path.Combine(Application.persistentDataPath, "PlayerStateDate.json");
+
+        private static PlayerStateDate _playerState;
+
+        // public static PlayerStateDate PlayerStateDate => _playerStateDate ??=
+        //     Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
+        //     (
+        //         LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
+        //     ) ?? new PlayerStateDate();
+        public static PlayerStateDate PlayerState
+        {
+            get
+            {
+                if (_playerState != null) { return _playerState; }
+
+                if (File.Exists(PlayerStateDateFilePath))
+                {
+                    _playerState = Newtonsoft.Json.JsonConvert.DeserializeObject<PlayerStateDate>
+                    (
+                        LocalFileStreamIO.ReadStringFromFile(PlayerStateDateFilePath)
+                    );
+                }
+                else
+                {
+                    _playerState = new PlayerStateDate();
+                }
+
+                return _playerState ??= new PlayerStateDate();
+                // if (_playerState != null && _playerState.Weapon != null)
+                // {
+                //     _playerState.Weapon = PackageItemDataDic[StorableItemType.武器]
+                //         .FirstOrDefault(x => x.ItmId == _playerState.Weapon.ItmId);
+                // }
+            }
+            set => _playerState = value;
+        }
+
+        public static void SavePlayerStateDate()
+        {
+            string jsonData =
+                Newtonsoft.Json.JsonConvert.SerializeObject(PlayerState, Newtonsoft.Json.Formatting.Indented);
+            LocalFileStreamIO.WriteStringToFile(PlayerStateDateFilePath, jsonData);
+        }
+    }
+
+    public class PlayerStateDate
+    {
+        public PlayerStateDate(StorableItemData weapon = null, int hp = 100)
+        {
+            this.weapon = weapon;
+            this.Hp = hp;
+        }
+
+        private StorableItemData weapon;
+
+        public StorableItemData Weapon
+        {
+            get => weapon;
+            set
+            {
+                Debug.Log(value?.InfoIndex);
+                weapon = value;
+            }
+        }
+
+        public int Hp;
     }
 }

@@ -41,5 +41,5 @@ namespace Action3rd.UI
         }
     }
 
-    public enum PanelKey { Main, Setting, Bag }
+    public enum PanelKey { Main, Setting, Bag, Load }
 }

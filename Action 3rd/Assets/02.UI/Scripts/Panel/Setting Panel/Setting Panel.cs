@@ -9,11 +9,31 @@ namespace Action3rd.UI
         [SerializeField] private Button cancelButton;
         [SerializeField] private Slider globalVolumeSlider;
         [SerializeField] private Slider skillVolumeSlider;
+        private AudioSource BGMAudioSource;
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            Time.timeScale = 0f;
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            Time.timeScale = 1f;
+        }
 
         private void Awake()
         {
             saveButton.onClick.AddListener(SaveSetting);
             cancelButton.onClick.AddListener(CancelSetting);
+            this.BGMAudioSource = Camera.main?.GetComponent<AudioSource>();
+            globalVolumeSlider.onValueChanged.AddListener(GlobalVolumeSliderValueChanged);
+        }
+
+        private void GlobalVolumeSliderValueChanged(float arg0)
+        {
+            this.BGMAudioSource.volume = arg0 / 100f;
         }
 
         private void Start()
@@ -32,6 +52,8 @@ namespace Action3rd.UI
 
         private void CancelSetting()
         {
+            globalVolumeSlider.value = PlayerPrefs.GetInt("GlobalVolume", DefaultSetting.GlobalVolume);
+            skillVolumeSlider.value = PlayerPrefs.GetInt("SkillVolume", DefaultSetting.SkillVolume);
             PanelManager.ClosePanel();
         }
     }

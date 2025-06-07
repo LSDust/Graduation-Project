@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: da0618d8b66aaa34b982786d611ace7a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - prefabGoblin1: {fileID: 3432065988728902923, guid: ce7cdf71222d8d34592e9f5cd5f7e2a5,
+      type: 3}
+  - prefabDeathVFX: {fileID: 3824768332913518119, guid: fe7f38cbab62ba444803d3c72714d574,
+      type: 3}
+  - booty: {fileID: 6609806255299349442, guid: d22baaab4306f4f49a3f0005f3fa2f91, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

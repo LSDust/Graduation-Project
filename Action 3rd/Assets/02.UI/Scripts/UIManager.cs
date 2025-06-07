@@ -8,11 +8,12 @@ namespace Action3rd.UI
     /// <summary>
     /// 大管理类,挂在画布上
     /// </summary>
-    public class UIManager : Singleton<UIManager>
+    public class UIManager : MonoBehaviour
     {
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
+            // base.Awake();
+            DontDestroyOnLoad(this.gameObject);
             if (!PanelManager.PanelDic.ContainsKey(PanelKey.Main))
             {
                 PanelManager.PanelDic.Add(PanelKey.Main, transform.Find("Main Panel").GetComponent<MainPanel>());
@@ -27,6 +28,11 @@ namespace Action3rd.UI
             if (!PanelManager.PanelDic.ContainsKey(PanelKey.Bag))
             {
                 PanelManager.PanelDic.Add(PanelKey.Bag, transform.Find("Bag Panel").GetComponent<BagPanel>());
+            }
+
+            if (!PanelManager.PanelDic.ContainsKey(PanelKey.Load))
+            {
+                PanelManager.PanelDic.Add(PanelKey.Load, transform.Find("Load Panel").GetComponent<LoadPanel>());
             }
         }
 
