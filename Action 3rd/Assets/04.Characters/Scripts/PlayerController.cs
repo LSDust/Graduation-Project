@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -48,14 +49,24 @@ namespace Action3rd
             _characterController = GetComponent<CharacterController>();
         }
 
+        private void OnEnable()
+        {
+            InputManager.Instance.InputAssetObject.Player.Jump.performed += GetPlayerJumpInput;
+            InputManager.Instance.InputAssetObject.Player.Fire.performed += GetPlayerFireInput;
+            InputManager.Instance.InputAssetObject.Player.Roll.performed += GetPlayerRollInput;
+        }
+
+        private void OnDisable()
+        {
+            InputManager.Instance.InputAssetObject.Player.Jump.performed -= GetPlayerJumpInput;
+            InputManager.Instance.InputAssetObject.Player.Fire.performed -= GetPlayerFireInput;
+            InputManager.Instance.InputAssetObject.Player.Roll.performed -= GetPlayerRollInput;
+        }
+
         private void Start()
         {
             playerTramsform = transform;
             Cursor.lockState = CursorLockMode.Locked;
-            InputManager.Instance.InputAssetObject.Player.Jump.performed += GetPlayerJumpInput;
-            InputManager.Instance.InputAssetObject.Player.Fire.performed += GetPlayerFireInput;
-            InputManager.Instance.InputAssetObject.Player.Skill1.performed += _ => _animator.SetTrigger(Skill1);
-            InputManager.Instance.InputAssetObject.Player.Roll.performed += GetPlayerRollInput;
         }
 
         private void Update()
