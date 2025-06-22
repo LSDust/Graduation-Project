@@ -25,10 +25,6 @@ namespace Action3rd
         public float gravity = -9.8f; //重力
 
         private Vector3 g_Velocity = Vector3.zero; //重力速度
-
-        public Transform groundCheck; //检测地面的位置
-        public float groundRadius = 0.2f; //检测地面的半径
-        private bool isGrounded; //是否在地面上
         private Vector2 _playerInputVec; //玩家输入的方向
 
         public float jumpHeight = 3f; //跳跃高度
@@ -76,14 +72,12 @@ namespace Action3rd
 
         private void OnAnimatorMove()
         {
-            isGrounded = false; // Physics.CheckSphere(groundCheck.position, groundRadius, LayerMask.GetMask("Ground"));
-            if (isGrounded && g_Velocity.y < 0)
+            if (_characterController.isGrounded && g_Velocity.y < 0)
             {
                 g_Velocity.y = 0;
             }
-
-            Vector3 moveSpeed = _animator.velocity;
             g_Velocity.y += gravity * Time.deltaTime;
+            Vector3 moveSpeed = _animator.velocity;
             _characterController.Move((moveSpeed + g_Velocity) * Time.deltaTime);
         }
 
@@ -94,7 +88,7 @@ namespace Action3rd
 
         private void GetPlayerJumpInput(InputAction.CallbackContext ctx)
         {
-            if (isGrounded)
+            if (_characterController.isGrounded)
             {
                 _animator.SetTrigger(Jump);
             }
