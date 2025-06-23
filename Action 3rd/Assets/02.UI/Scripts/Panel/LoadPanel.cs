@@ -41,7 +41,7 @@ namespace Action3rd.UI
                 {
                     loadSlider.value = 1;
 
-                    loadText.text = "Press AnyKey To Continue";
+                    loadText.text = "按右键继续";
 
                     if (Mouse.current.rightButton.wasPressedThisFrame)
                     {

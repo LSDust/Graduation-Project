@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,10 @@ namespace Action3rd.UI
         [SerializeField] private Button cancelButton;
         [SerializeField] private Slider globalVolumeSlider;
         [SerializeField] private Slider skillVolumeSlider;
-        private AudioSource BGMAudioSource;
+
+        private AudioSource bgmAudioSource;
+
+        private AudioSource BGMAudioSource => this.bgmAudioSource ??= Camera.main?.GetComponent<AudioSource>();
 
         public override void OnEnter()
         {
@@ -27,7 +31,6 @@ namespace Action3rd.UI
         {
             saveButton.onClick.AddListener(SaveSetting);
             cancelButton.onClick.AddListener(CancelSetting);
-            this.BGMAudioSource = Camera.main?.GetComponent<AudioSource>();
             globalVolumeSlider.onValueChanged.AddListener(GlobalVolumeSliderValueChanged);
         }
 
