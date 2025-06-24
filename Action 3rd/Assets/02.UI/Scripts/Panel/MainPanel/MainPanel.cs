@@ -17,6 +17,18 @@ namespace Action3rd.UI
         [SerializeField] private Slider playerHpBar;
         private WithHp playerHp;
 
+        private WithHp PlayerHp
+        {
+            get
+            {
+                if (playerHp == null)
+                {
+                    playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<WithHp>();
+                }
+                return playerHp;
+            }
+        }
+
         private void Awake()
         {
             settingButton.onClick.AddListener(OpenSettingPanel);
@@ -33,12 +45,12 @@ namespace Action3rd.UI
                 loadMainButton.gameObject.SetActive(true);
                 loadDungeonButton.gameObject.SetActive(false);
             });
-            this.playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<WithHp>();
+            // this.playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<WithHp>();
         }
 
         private void Update()
         {
-            this.playerHpBar.value = this.playerHp.hp;
+            this.playerHpBar.value = this.PlayerHp.hp;
         }
 
         private void OpenSettingPanel()
