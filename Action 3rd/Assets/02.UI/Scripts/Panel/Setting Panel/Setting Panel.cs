@@ -13,7 +13,18 @@ namespace Action3rd.UI
 
         private AudioSource bgmAudioSource;
 
-        private AudioSource BGMAudioSource => this.bgmAudioSource ??= Camera.main?.GetComponent<AudioSource>();
+        private AudioSource BGMAudioSource
+        {
+            get
+            {
+                if (bgmAudioSource == null)
+                {
+                    bgmAudioSource =  Camera.main?.GetComponent<AudioSource>();
+                }
+
+                return bgmAudioSource;
+            }
+        }
 
         public override void OnEnter()
         {
@@ -59,11 +70,5 @@ namespace Action3rd.UI
             skillVolumeSlider.value = PlayerPrefs.GetInt("SkillVolume", DefaultSetting.SkillVolume);
             PanelManager.ClosePanel();
         }
-    }
-
-    public static class DefaultSetting
-    {
-        public const int GlobalVolume = 5;
-        public const int SkillVolume = 5;
     }
 }
